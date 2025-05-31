@@ -22,4 +22,4 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v2 # file: sonar-project.properties
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TFM_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
