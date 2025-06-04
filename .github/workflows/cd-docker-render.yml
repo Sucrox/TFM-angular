@@ -25,7 +25,7 @@ jobs:
 
           echo "REPOSITORY=$LOWER_REPOSITORY" >> $GITHUB_ENV
           echo "VERSION=$(node -pe "require('./package.json').version")" >> $GITHUB_ENV
-          echo "PACKAGE_PATH=ghcr.io/${{ github.repository }}" >> $GITHUB_ENV
+          echo "PACKAGE_PATH=ghcr.io/$LOWER_REPOSITORY" >> $GITHUB_ENV
       - name: Show NAMES
         run: |
           echo $REPOSITORY
@@ -53,10 +53,10 @@ jobs:
         run: |
            docker push $PACKAGE_PATH:$VERSION
            docker push $PACKAGE_PATH:latest
-      - name: Deploy on Render
-        # En Render, en el servicio Web, Settings >> Deploy Hook >>  copiar el token de acceso
-        # En GitHub, en el repositorio, Settings >> Secrets and variables >> Actions >> definir la variable de entorno
-        # DEPLOY_HOOK_TOKEN con el token
-        run: |
-           curl --fail -X POST "https://api.render.com/deploy/${{ secrets.DEPLOY_HOOK_TOKEN }}" || { echo "Deployment failed"; exit 1; }
-           echo "Deployment succeeded"
+#      - name: Deploy on Render
+#        # En Render, en el servicio Web, Settings >> Deploy Hook >>  copiar el token de acceso
+#        # En GitHub, en el repositorio, Settings >> Secrets and variables >> Actions >> definir la variable de entorno
+#        # DEPLOY_HOOK_TOKEN con el token
+#        run: |
+#           curl --fail -X POST "https://api.render.com/deploy/${{ secrets.DEPLOY_HOOK_TOKEN }}" || { echo "Deployment failed"; exit 1; }
+#           echo "Deployment succeeded"
