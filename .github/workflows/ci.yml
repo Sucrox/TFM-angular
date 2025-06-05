@@ -12,8 +12,10 @@ jobs:
           node-version: 22.13.1
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
-      - name: Setup npm auth token
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      - name: Setup npm auth token for private package
+        run: |
+          echo "@adrian_alonso:registry=https://registry.npmjs.org/" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
       - name: Install dependencies
         run: npm ci
       - name: Build Angular App
