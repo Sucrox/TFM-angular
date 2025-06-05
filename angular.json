@@ -34,9 +34,15 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@adrian_alonso/component-library/lib/icons/style.css",
+              "node_modules/@adrian_alonso/component-library/lib/fonts/style.css",
+              "node_modules/@adrian_alonso/component-library/lib/variables/style.css",
+              "node_modules/@adrian_alonso/component-library/lib/component-library.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -93,9 +99,15 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@adrian_alonso/component-library/lib/icons/style.css",
+              "node_modules/@adrian_alonso/component-library/lib/fonts/style.css",
+              "node_modules/@adrian_alonso/component-library/lib/variables/style.css",
+              "node_modules/@adrian_alonso/component-library/lib/component-library.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"
+            ]
           }
         }
       }
