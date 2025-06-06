@@ -1,8 +1,15 @@
 # Etapa de construcción
 FROM node:22.13.1-alpine AS build
 WORKDIR /app
+
+ARG NPM_TOKEN
+
+# ✅ Crear el archivo .npmrc para acceso privado
+RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+
 COPY package.json package-lock.json ./
 RUN npm ci
+RUN rm ~/.npmrc
 COPY . .
 RUN npm run build-prod
 

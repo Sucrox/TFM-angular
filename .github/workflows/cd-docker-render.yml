@@ -14,10 +14,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22.13.1
-      - name: Setup npm auth token for private package
-        run: |
-          echo "@adrian_alonso:registry=https://registry.npmjs.org/" >> ~/.npmrc
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
       - name: Get version from package.json
         id: get-version
         # REPOSITORY: nombre del repositorio
@@ -50,7 +46,9 @@ jobs:
         # docker build se construye la imagen de docker a partir del fichero Dockerfile
         # docker tag: se etiqueta la imagen con la versión actual y se establece que es la última
         run: |
-          docker build  -t $REPOSITORY:$VERSION .
+          docker build \
+            --build-arg NPM_TOKEN=${{ secrets.NPM_TOKEN }} \
+            -t $REPOSITORY:$VERSION .
           docker tag $REPOSITORY:$VERSION $PACKAGE_PATH:$VERSION
           docker tag $REPOSITORY:$VERSION $PACKAGE_PATH:latest
       - name: Push Docker image to GitHub Container Registry

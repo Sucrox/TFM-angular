@@ -1,5 +1,10 @@
 FROM node:22.13.1-alpine AS build
 WORKDIR /app
+# --- Añadir el ARG para pasar el token
+ARG NPM_TOKEN
+
+# --- Crear .npmrc con el token
+RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
@@ -8,6 +13,8 @@ EXPOSE 4200
 CMD ["npm", "run", "start"]
 
 # Contruir la imagen
+#>docker build -f Dockerfile-dev -t tfm-angular --build-arg NPM_TOKEN= .
+
 #> docker build -f Dockerfile-dev -t tfm-angular .
 
 # Crear y arrancar el contenedor
