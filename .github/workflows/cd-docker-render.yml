@@ -14,6 +14,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22.13.1
+      - name: Setup npm auth token for private package
+        run: |
+          echo "@adrian_alonso:registry=https://registry.npmjs.org/" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
       - name: Get version from package.json
         id: get-version
         # REPOSITORY: nombre del repositorio
@@ -51,8 +55,8 @@ jobs:
           docker tag $REPOSITORY:$VERSION $PACKAGE_PATH:latest
       - name: Push Docker image to GitHub Container Registry
         run: |
-           docker push $PACKAGE_PATH:$VERSION
-           docker push $PACKAGE_PATH:latest
+          docker push $PACKAGE_PATH:$VERSION
+          docker push $PACKAGE_PATH:latest
 #      - name: Deploy on Render
 #        # En Render, en el servicio Web, Settings >> Deploy Hook >>  copiar el token de acceso
 #        # En GitHub, en el repositorio, Settings >> Secrets and variables >> Actions >> definir la variable de entorno
