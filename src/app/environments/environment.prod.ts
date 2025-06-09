@@ -4,7 +4,7 @@ export const environment = {
   production: false,
   NAME: pkg.name,
   VERSION: pkg.version,
-  backendUrl: 'http://localhost:8081',
+  backendUrl: 'https://tfm-spring.onrender.com',
   routes: [
   ],
 }

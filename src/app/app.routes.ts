@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-import {DomainRoutesEnum} from '@tfm-angular/shared/domain';
+import { DomainRoutesEnum } from '@tfm-angular/shared/domain';
+import { authGuard } from './shared/util/lib/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -7,6 +8,7 @@ export const routes: Routes = [
     loadComponent: () => import('./features/profile/profile.component').then(
       (m)=> m.ProfileComponent),
     title: 'Profile',
+    canActivate: [authGuard]
   },
   {
     path: DomainRoutesEnum.LOGIN,
