@@ -1,8 +1,8 @@
 import { inject, Injectable} from '@angular/core';
-import {DataAccessAbstractHttpService} from '@tfm-angular/shared/data-access';
+import { DataAccessAbstractHttpService } from '@tfm-angular/shared/data-access';
 import { catchError, Observable, of } from 'rxjs';
-import {Router} from '@angular/router';
-import {DomainRoutesEnum} from '@tfm-angular/shared/domain';
+import { Router } from '@angular/router';
+import { DomainRoutesEnum } from '@tfm-angular/shared/domain';
 
 @Injectable({
   providedIn:'root'

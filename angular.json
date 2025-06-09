@@ -41,7 +41,7 @@
               "node_modules/@adrian_alonso/component-library/lib/component-library.css"
             ],
             "scripts": [
-              "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"
+              "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"
             ]
           },
           "configurations": {

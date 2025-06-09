@@ -28,8 +28,8 @@
       "@tfm-angular/shared/domain": ["src/app/shared/domain/index"],
       "@tfm-angular/shared/ui": ["src/app/shared/ui/index"],
 
-      "@tfm-angular/login/domain": ["./src/app/features/login/domain"],
-      "@tfm-angular/login/ui": ["./src/app/features/login/ui"],
+      "@tfm-angular/login/domain": ["src/app/features/login/domain"],
+      "@tfm-angular/login/ui": ["src/app/features/login/ui"],
     }
   },
   "angularCompilerOptions": {
