@@ -1,0 +1,23 @@
+{
+  "login": {
+    "loginForm": {
+      "email": {
+        "label": "Email",
+        "placeholder": "placeholder@email.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "password123"
+      },
+      "error": "Por favor rellena todos los campos obligatorios"
+    }
+  },
+  "errors": {
+    "email": {
+      "required": "Campo obligatorio"
+    },
+    "password": {
+      "required": "Campo obligatorio"
+    }
+  }
+}

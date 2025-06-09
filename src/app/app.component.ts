@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import '@adrian_alonso/component-library/tfm-button';
 import {FooterComponent} from '@tfm-angular/shared/ui';
 import {NavbarComponent} from '@tfm-angular/shared/ui';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -14,4 +15,14 @@ import {NavbarComponent} from '@tfm-angular/shared/ui';
 })
 export class AppComponent {
   title = 'tfm-angular';
+
+  constructor(private translate: TranslateService) {
+    translate.addLangs(['en', 'es']);
+    translate.setDefaultLang('es');
+
+    const supportedLangs = ['en', 'es'];
+    const browserLang = translate.getBrowserLang();
+    const matchedLang = supportedLangs.includes(browserLang ?? '') ? browserLang! : 'es';
+    translate.use(matchedLang);
+  }
 }
