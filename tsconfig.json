@@ -30,6 +30,9 @@
 
       "@tfm-angular/login/domain": ["src/app/features/login/domain"],
       "@tfm-angular/login/ui": ["src/app/features/login/ui"],
+
+      "@tfm-angular/register/domain": ["src/app/features/register/domain"],
+      "@tfm-angular/register/ui": ["src/app/features/register/ui"]
     }
   },
   "angularCompilerOptions": {

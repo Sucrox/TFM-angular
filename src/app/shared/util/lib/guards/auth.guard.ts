@@ -8,7 +8,7 @@ export function authGuard(): boolean{
   const authService: DataAccessAuthService = inject(DataAccessAuthService);
 
   if(!authService.isAuthenticated()){
-    router.navigate([DomainRoutesEnum.LOGIN]);
+    router.navigate([DomainRoutesEnum.REGISTER]);
     return false;
   }
   return true;

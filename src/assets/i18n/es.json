@@ -1,5 +1,6 @@
 {
   "login": {
+    "action": "Iniciar sesión",
     "loginForm": {
       "email": {
         "label": "Email",
@@ -12,11 +13,59 @@
       "error": "Por favor rellena todos los campos obligatorios"
     }
   },
+  "register": {
+    "action": "Registrar",
+    "registerForm": {
+      "email": {
+        "label": "Email",
+        "placeholder": "placeholder@email.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "password123"
+      },
+      "confirmPassword": {
+        "label": "Confirmar contraseña",
+        "placeholder": "password123"
+      },
+      "firstName": {
+        "label": "Nombre",
+        "placeholder": "Adrián"
+      },
+      "familyName": {
+        "label": "Apellido",
+        "placeholder": "Alonso"
+      },
+      "dni": {
+        "label": "DNI",
+        "placeholder": "49207755K"
+      },
+      "phone": {
+        "label": "Teléfono",
+        "placeholder": "643124967"
+      }
+    }
+  },
   "errors": {
     "email": {
       "required": "Campo obligatorio"
     },
     "password": {
+      "required": "Campo obligatorio"
+    },
+    "confirmPassword": {
+      "required": "Campo obligatorio"
+    },
+    "firstName": {
+      "required": "Campo obligatorio"
+    },
+    "familyName": {
+      "required": "Campo obligatorio"
+    },
+    "dni": {
+      "required": "Campo obligatorio"
+    },
+    "phone": {
       "required": "Campo obligatorio"
     }
   }

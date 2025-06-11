@@ -8,13 +8,18 @@ export const routes: Routes = [
     loadComponent: () => import('./features/profile/profile.component').then(
       (m)=> m.ProfileComponent),
     title: 'Profile',
-    canActivate: [authGuard]
   },
   {
     path: DomainRoutesEnum.LOGIN,
     loadComponent: () => import('./features/login/login.component').then(
       (m)=> m.LoginComponent),
-    title: 'Play',
+    title: 'Login',
+  },
+  {
+    path: DomainRoutesEnum.REGISTER,
+    loadComponent: () => import('./features/register/register.component').then(
+      (m)=> m.RegisterComponent),
+    title: 'Register',
   },
   {
     path: '**',

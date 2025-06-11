@@ -1,0 +1,72 @@
+{
+  "login": {
+    "action": "Iniciar sesión",
+    "loginForm": {
+      "email": {
+        "label": "Email",
+        "placeholder": "placeholder@email.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "password123"
+      },
+      "error": "Please fill in all required fields"
+    }
+  },
+  "register": {
+    "action": "Registrar",
+    "registerForm": {
+      "email": {
+        "label": "Email",
+        "placeholder": "placeholder@email.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "password123"
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "password123"
+      },
+      "firstName": {
+        "label": "First Name",
+        "placeholder": "Adrian"
+      },
+      "familyName": {
+        "label": "Last Name",
+        "placeholder": "Alonso"
+      },
+      "dni": {
+        "label": "ID Number",
+        "placeholder": "49207755K"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "643124967"
+      }
+    }
+  },
+  "errors": {
+    "email": {
+      "required": "This field is required"
+    },
+    "password": {
+      "required": "This field is required"
+    },
+    "confirmPassword": {
+      "required": "This field is required"
+    },
+    "firstName": {
+      "required": "This field is required"
+    },
+    "familyName": {
+      "required": "This field is required"
+    },
+    "dni": {
+      "required": "This field is required"
+    },
+    "phone": {
+      "required": "This field is required"
+    }
+  }
+}
