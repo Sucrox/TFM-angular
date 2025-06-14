@@ -12,6 +12,7 @@ import {
 import {Country} from '@adrian_alonso/component-library/interfaces';
 import {LangsEnum} from '../../../domain/lib/enums/langs-enum';
 import "@adrian_alonso/component-library/tfm-prefix-selector"
+import {DataAccessAuthService} from '@tfm-angular/shared/data-access';
 
 @Component({
   selector: 'tfm-navbar',
@@ -27,6 +28,7 @@ import "@adrian_alonso/component-library/tfm-prefix-selector"
 })
 export class NavbarComponent implements OnInit{
 
+  private readonly authService: DataAccessAuthService = inject(DataAccessAuthService)
   private translateService: TranslateService = inject(TranslateService)
 
   public readonly userWidgetTheme : Theme = Theme.DARK;
@@ -75,6 +77,10 @@ export class NavbarComponent implements OnInit{
         this.translateService.use(LangsEnum.EN)
         break;
     }
+  }
+
+  public logout(): void {
+    this.authService.logout();
   }
 
 }
