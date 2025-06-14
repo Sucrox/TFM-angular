@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DomainRoutesEnum } from '@tfm-angular/shared/domain';
 import {resolve} from '@angular/compiler-cli';
 import {LoginDomainForm} from '@tfm-angular/login/domain';
+import {RegisterDomainForm} from '@tfm-angular/register/domain';
 
 @Injectable({
   providedIn:'root'
@@ -32,6 +33,24 @@ export class DataAccessAuthService extends DataAccessAbstractHttpService {
           console.log('Autenticación completada');
         }
       });
+  }
+
+  public register(registerCredentials: RegisterDomainForm):void  {
+    if(this.isAuthenticated()){
+      //
+    }
+    this.post<LoginDomainForm,string>('/register', registerCredentials).subscribe({
+      next: (token: string) => {
+        this.setAuthorization(token);
+        this.router.navigateByUrl(DomainRoutesEnum.PROFILE);
+      },
+      error: () => {
+        alert('Credenciales erroneas');
+      },
+      complete: () => {
+        console.log('Autenticación completada');
+      }
+    });
   }
 
   public checkUserName(username:string):Observable<any> {

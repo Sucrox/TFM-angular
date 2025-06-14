@@ -19,7 +19,7 @@ export class RegisterComponent {
   private readonly authService: DataAccessAuthService = inject(DataAccessAuthService);
 
   public register(registerData: RegisterDomainForm) : void {
-    // this.authService.register(registerData);
+    this.authService.register(registerData);
   }
 
 }

@@ -18,19 +18,19 @@ export class FormValidationUtils {
   }
 
   public static inputPhoneRequiredValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const controlValue= control.value;
-      if(controlValue) {
+    return (control: AbstractControl) => {
+      const controlValue = control.value;
+      if (controlValue) {
         const phoneParts = controlValue.split(' ');
-        if (phoneParts.length === 1){
-          return {required: true}
+        if (phoneParts.length === 1) {
+          return { required: true };
         }
-        else if( phoneParts.length === 2 && phoneParts[1].length != 9){
-          return { pattern: true}
+        else if(phoneParts.length === 2 && phoneParts[1].length != 9){
+          return { pattern: true };
         }
       }
       return null;
-    }
+    };
   }
 
 }

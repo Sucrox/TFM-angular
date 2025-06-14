@@ -11,7 +11,7 @@ export const REGISTER_FORM_MODEL: RegisterFormGroupModel = {
     required: true
   },
   password: {
-    type: InputTypeEnum.TEXT,
+    type: InputTypeEnum.PASSWORD,
     name: 'password',
     label: 'register.registerForm.password.label',
     placeholder: 'register.registerForm.password.placeholder',
@@ -19,7 +19,7 @@ export const REGISTER_FORM_MODEL: RegisterFormGroupModel = {
     required: true
   },
   confirmPassword: {
-    type: InputTypeEnum.TEXT,
+    type: InputTypeEnum.PASSWORD,
     name: 'confirmPassword',
     label: 'register.registerForm.confirmPassword.label',
     placeholder: 'register.registerForm.confirmPassword.placeholder',

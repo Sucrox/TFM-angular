@@ -1,6 +1,6 @@
 import {
   ChangeDetectionStrategy,
-  Component,
+  Component, computed,
   CUSTOM_ELEMENTS_SCHEMA, effect,
   output,
   OutputEmitterRef,
@@ -41,6 +41,12 @@ export class CredentialFormComponent {
 
   public showWarning: WritableSignal<boolean> = signal(false);
   public readonly form: WritableSignal<FormGroup<RegisterForm>> = signal(this.generateForm());
+
+  public readonly passwordsDoNotMatch = computed(() => {
+    const password = this.form().get('password')?.value;
+    const confirmPassword = this.form().get('confirmPassword')?.value;
+    return password !== confirmPassword;
+  });
 
   constructor() {
     effect(() => {
