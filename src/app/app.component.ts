@@ -15,14 +15,4 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'tfm-angular';
-
-  constructor(private translate: TranslateService) {
-    translate.addLangs(['en', 'es']);
-    translate.setDefaultLang('es');
-
-    const supportedLangs = ['en', 'es'];
-    const browserLang = translate.getBrowserLang();
-    const matchedLang = supportedLangs.includes(browserLang ?? '') ? browserLang! : 'es';
-    translate.use(matchedLang);
-  }
 }

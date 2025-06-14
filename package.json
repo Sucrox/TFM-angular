@@ -8,7 +8,7 @@
   "private": true,
   "dependencies": {
     "@adrian_alonso/angular-utils-library": "^1.0.6",
-    "@adrian_alonso/component-library": "^1.0.0",
+    "@adrian_alonso/component-library": "^1.0.2",
     "@angular/animations": "19.1.1",
     "@angular/common": "19.1.1",
     "@angular/compiler": "19.1.1",
