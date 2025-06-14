@@ -2,11 +2,13 @@ import {Component, CUSTOM_ELEMENTS_SCHEMA, inject} from '@angular/core';
 import {CredentialFormComponent} from '@tfm-angular/register/ui';
 import {RegisterDomainForm} from '@tfm-angular/register/domain';
 import {DataAccessAuthService} from '@tfm-angular/shared/data-access';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
   imports: [
-    CredentialFormComponent
+    CredentialFormComponent,
+    TranslatePipe
   ],
   templateUrl: './register.component.html',
   standalone: true,

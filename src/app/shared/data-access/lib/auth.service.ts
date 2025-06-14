@@ -1,9 +1,8 @@
 import { inject, Injectable} from '@angular/core';
 import { DataAccessAbstractHttpService } from '@tfm-angular/shared/data-access';
-import { catchError, Observable, of } from 'rxjs';
+import {catchError, Observable, of, switchMap} from 'rxjs';
 import { Router } from '@angular/router';
 import { DomainRoutesEnum } from '@tfm-angular/shared/domain';
-import {resolve} from '@angular/compiler-cli';
 import {LoginDomainForm} from '@tfm-angular/login/domain';
 import {RegisterDomainForm} from '@tfm-angular/register/domain';
 
@@ -21,9 +20,9 @@ export class DataAccessAuthService extends DataAccessAbstractHttpService {
     if(this.isAuthenticated()){
       //
     }
-    this.post<LoginDomainForm,string>('/login', loginCredentials).subscribe({
-        next: (token: string) => {
-          this.setAuthorization(token);
+    this.post<LoginDomainForm, { token: string }>('/login', loginCredentials).subscribe({
+      next: (response: { token: string }) => {
+          this.setAuthorization(response.token);
           this.router.navigateByUrl(DomainRoutesEnum.PROFILE);
         },
         error: () => {
@@ -39,20 +38,27 @@ export class DataAccessAuthService extends DataAccessAbstractHttpService {
     if(this.isAuthenticated()){
       //
     }
-    this.post<LoginDomainForm,string>('/register', registerCredentials).subscribe({
-      next: (token: string) => {
-        this.setAuthorization(token);
+    this.post<RegisterDomainForm, any>('/register', registerCredentials).pipe(
+      switchMap(() => {
+        const loginCredentials: LoginDomainForm = {
+          email: registerCredentials.email,
+          password: registerCredentials.password
+        };
+        return this.post<LoginDomainForm, { token: string }>('/login', loginCredentials);
+      })
+    ).subscribe({
+      next: (response: { token: string }) => {
+        this.setAuthorization(response.token);
         this.router.navigateByUrl(DomainRoutesEnum.PROFILE);
       },
       error: () => {
         alert('Credenciales erroneas');
       },
       complete: () => {
-        console.log('Autenticación completada');
+        console.log('Registro y autenticación completados');
       }
     });
   }
-
   public checkUserName(username:string):Observable<any> {
     return this.get(`/${username}`).pipe(
       catchError((error: any) => {
@@ -61,11 +67,7 @@ export class DataAccessAuthService extends DataAccessAbstractHttpService {
     );
   }
 
-  public setAuthorization(token: string){
-    this.storeToken(token);
-  }
-
-  private storeToken(token: string): void {
+  private setAuthorization(token: string){
     sessionStorage.setItem('authToken', token);
   }
 
@@ -76,11 +78,6 @@ export class DataAccessAuthService extends DataAccessAbstractHttpService {
   private removeToken(): void {
     sessionStorage.removeItem('authToken');
   }
-
-  public storeUser(username: string): void {
-    sessionStorage.setItem('user', username);
-  }
-
 
   public logout(): void{
     this.removeToken();

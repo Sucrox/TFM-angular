@@ -8,6 +8,7 @@ export const routes: Routes = [
     loadComponent: () => import('./features/profile/profile.component').then(
       (m)=> m.ProfileComponent),
     title: 'Profile',
+    canActivate: [authGuard]
   },
   {
     path: DomainRoutesEnum.LOGIN,

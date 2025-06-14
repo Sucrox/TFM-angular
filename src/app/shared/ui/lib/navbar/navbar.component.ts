@@ -1,4 +1,4 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit} from '@angular/core';
+import {Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit} from '@angular/core';
 import {ControlValueAccessorDirective} from '@adrian_alonso/angular-utils-library';
 import {LangChangeEvent, TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
@@ -37,6 +37,9 @@ export class NavbarComponent implements OnInit{
     {flag: CountryFlagEnum.ES, initials: CountryInitialsEnum.ES, prefix:CountryPrefixEnum.ES},
     {flag: CountryFlagEnum.GB, initials: CountryInitialsEnum.GB, prefix:CountryPrefixEnum.GB}
   ]
+
+  public readonly isAuthenticated = computed(() => this.authService.isAuthenticated());
+
 
   public readonly languageWidget: FormControl<CountryInitialsEnum> = new FormControl(CountryInitialsEnum.ES, {nonNullable: true})
 

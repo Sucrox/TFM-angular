@@ -1,32 +1,40 @@
 {
   "login": {
+    "title": "Iniciar sesión",
     "action": "Iniciar sesión",
+    "navigate": {
+      "register": "¿No tienes una cuenta? Regístrate"
+    },
     "loginForm": {
       "email": {
         "label": "Email",
         "placeholder": "placeholder@email.com"
       },
       "password": {
-        "label": "Password",
-        "placeholder": "password123"
+        "label": "Contraseña",
+        "placeholder": "contraseña123"
       },
-      "error": "Por favor rellena todos los campos obligatorios"
+      "error": "Por favor, rellena todos los campos obligatorios"
     }
   },
   "register": {
-    "action": "Registrar",
+    "title": "Registrarse",
+    "action": "Registrarse",
+    "navigate": {
+      "register": "¿Ya tienes cuenta? Inicia sesión"
+    },
     "registerForm": {
       "email": {
         "label": "Email",
         "placeholder": "placeholder@email.com"
       },
       "password": {
-        "label": "Password",
-        "placeholder": "password123"
+        "label": "Contraseña",
+        "placeholder": "contraseña123"
       },
       "confirmPassword": {
         "label": "Confirmar contraseña",
-        "placeholder": "password123"
+        "placeholder": "contraseña123"
       },
       "firstName": {
         "label": "Nombre",

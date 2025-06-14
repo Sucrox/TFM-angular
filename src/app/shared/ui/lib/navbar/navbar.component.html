@@ -18,13 +18,12 @@
       >
 
       </tfm-prefix-selector>
-
-      <a (click)="logout()">
-        <img src="assets/shared/logout.png" alt="logout">
-        <span class="white"> Logout</span>
-      </a>
-
-
+      @if (isAuthenticated()){
+        <a (click)="logout()">
+          <img src="assets/shared/logout.png" alt="logout">
+          <span class="white"> Logout</span>
+        </a>
+      }
     </div>
   </nav>
 </header>

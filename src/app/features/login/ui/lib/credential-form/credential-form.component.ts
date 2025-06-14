@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  CUSTOM_ELEMENTS_SCHEMA, effect,
+  CUSTOM_ELEMENTS_SCHEMA, effect, inject,
   output,
   OutputEmitterRef,
   signal,
@@ -12,10 +12,13 @@ import {LoginDomainForm, LoginForm, LoginFormGroupModel} from '@tfm-angular/logi
 import {LOGIN_FORM_MODEL} from '../../../util';
 import "@adrian_alonso/component-library/tfm-input"
 import "@adrian_alonso/component-library/tfm-ribbon"
+import "@adrian_alonso/component-library/tfm-link"
 import "@adrian_alonso/component-library/tfm-input-email"
 import {ControlValueAccessorDirective} from '@adrian_alonso/angular-utils-library';
 import {TranslateModule, TranslatePipe} from '@ngx-translate/core';
 import { RibbonStateEnum } from '@adrian_alonso/component-library/enums';
+import { Router } from '@angular/router';
+import {DomainRoutesEnum} from '@tfm-angular/shared/domain';
 
 @Component({
   selector: 'login-credential-form',
@@ -32,6 +35,8 @@ import { RibbonStateEnum } from '@adrian_alonso/component-library/enums';
   standalone: true,
 })
 export class CredentialFormComponent {
+
+  public readonly router: Router = inject(Router)
 
   public readonly submit: OutputEmitterRef<LoginDomainForm>= output<LoginDomainForm>()
   public readonly loginFormModel: LoginFormGroupModel = LOGIN_FORM_MODEL;
@@ -54,6 +59,10 @@ export class CredentialFormComponent {
         this.form().updateValueAndValidity();
       }
     })
+  }
+
+  public goToRegister(): void{
+    this.router.navigate([DomainRoutesEnum.REGISTER]);
   }
 
   public submitForm(): void {

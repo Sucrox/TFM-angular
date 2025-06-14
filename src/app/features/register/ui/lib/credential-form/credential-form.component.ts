@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component, computed,
-  CUSTOM_ELEMENTS_SCHEMA, effect,
+  CUSTOM_ELEMENTS_SCHEMA, effect, inject,
   output,
   OutputEmitterRef,
   signal,
@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import "@adrian_alonso/component-library/tfm-input"
+import "@adrian_alonso/component-library/tfm-link"
 import "@adrian_alonso/component-library/tfm-ribbon"
 import "@adrian_alonso/component-library/tfm-input-phone"
 import "@adrian_alonso/component-library/tfm-input-email"
@@ -18,6 +19,8 @@ import { RibbonStateEnum } from '@adrian_alonso/component-library/enums';
 import { REGISTER_FORM_MODEL} from '../../../util';
 import { RegisterDomainForm, RegisterForm, RegisterFormGroupModel} from '../../../domain';
 import {FormValidationUtils} from '@tfm-angular/shared/util';
+import {DomainRoutesEnum} from '@tfm-angular/shared/domain';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'register-credential-form',
@@ -34,6 +37,8 @@ import {FormValidationUtils} from '@tfm-angular/shared/util';
   standalone: true,
 })
 export class CredentialFormComponent {
+
+  public readonly router: Router = inject(Router)
 
   public readonly submit: OutputEmitterRef<RegisterDomainForm>= output<RegisterDomainForm>()
   public readonly registerFormModel: RegisterFormGroupModel = REGISTER_FORM_MODEL;
@@ -75,6 +80,11 @@ export class CredentialFormComponent {
   public invalidSelected() : void{
     this.showWarning.set(true);
   }
+
+  public goToLogin(): void{
+    this.router.navigate([DomainRoutesEnum.LOGIN]);
+  }
+
 
   private generateForm(): FormGroup<RegisterForm> {
     return new FormGroup<RegisterForm>({

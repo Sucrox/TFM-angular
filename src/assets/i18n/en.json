@@ -1,6 +1,10 @@
 {
   "login": {
-    "action": "Iniciar sesión",
+    "title": "Log In",
+    "action": "Log In",
+    "navigate": {
+      "register": "Don't have an account? Sign up"
+    },
     "loginForm": {
       "email": {
         "label": "Email",
@@ -14,7 +18,11 @@
     }
   },
   "register": {
-    "action": "Registrar",
+    "title": "Register",
+    "action": "Register",
+    "navigate": {
+      "register": "Already have an account? Log in"
+    },
     "registerForm": {
       "email": {
         "label": "Email",
@@ -30,7 +38,7 @@
       },
       "firstName": {
         "label": "First Name",
-        "placeholder": "Adrian"
+        "placeholder": "Adrián"
       },
       "familyName": {
         "label": "Last Name",
