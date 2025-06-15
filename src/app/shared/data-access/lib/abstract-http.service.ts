@@ -21,6 +21,16 @@ export abstract class DataAccessAbstractHttpService {
       params: queryParams
     });
   }
+
+  protected patch<T,R> (path: string, body: T, headers: Record<string, string> = {}, queryParams : Record<string, string> = {}): Observable<R>{
+    return this.httpClient.patch<R>(this.getEndpoint(path), body, {
+      headers: {
+        ...this.baseHeaders,
+        ...headers
+      },
+      params: queryParams
+    });
+  }
   protected get<T> (path: string, queryParams : Record<string, string> = {}, headers: Record<string, string> = {}): Observable<HttpResponse<T>>{
     return this.httpClient.get<HttpResponse<T>>(this.getEndpoint(path), {
       params: queryParams,

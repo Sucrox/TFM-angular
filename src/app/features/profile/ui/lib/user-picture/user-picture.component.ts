@@ -1,5 +1,6 @@
-import {Component, computed, CUSTOM_ELEMENTS_SCHEMA, input, InputSignal, Signal} from '@angular/core';
+import {Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, input, InputSignal, Signal} from '@angular/core';
 import {Img} from '../../../../../shared/domain/lib/interfaces/img.interface';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'profile-user-picture',
@@ -25,13 +26,15 @@ import {Img} from '../../../../../shared/domain/lib/interfaces/img.interface';
   `]
 })
 export class ProfileUserPictureComponent {
+  private readonly translate = inject(TranslateService);
+
   public static readonly propicPlaceholder: string = 'assets/profile/propic-placeholder.jpg';
 
   public propic: InputSignal<string> = input.required<string>();
 
   public propicImg: Signal<Img<string>> = computed(() => ({
     src: this.propic(),
-    alt: 'Immagine profilo'
+    alt: this.translate.instant('profile.imagAlt')
   }));
 }
 

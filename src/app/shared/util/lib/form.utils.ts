@@ -17,6 +17,20 @@ export class FormValidationUtils {
     };
   }
 
+  public static newPasswordValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const group = control as FormGroup;
+      const password = group.get('newPassword')?.value;
+      const confirmPassword = group.get('confirmPassword')?.value;
+
+      if (!password || !confirmPassword) {
+        return null;
+      }
+
+      return password === confirmPassword ? null : { passwordMismatch: true };
+    };
+  }
+
   public static inputPhoneRequiredValidator(): ValidatorFn {
     return (control: AbstractControl) => {
       const controlValue = control.value;

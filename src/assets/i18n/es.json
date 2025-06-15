@@ -4,54 +4,62 @@
     "action": "Iniciar sesión",
     "navigate": {
       "register": "¿No tienes una cuenta? Regístrate"
-    },
-    "loginForm": {
-      "email": {
-        "label": "Email",
-        "placeholder": "placeholder@email.com"
-      },
-      "password": {
-        "label": "Contraseña",
-        "placeholder": "contraseña123"
-      },
-      "error": "Por favor, rellena todos los campos obligatorios"
     }
   },
   "register": {
     "title": "Registrarse",
     "action": "Registrarse",
     "navigate": {
-      "register": "¿Ya tienes cuenta? Inicia sesión"
+      "login": "¿Ya tienes cuenta? Inicia sesión"
+    }
+  },
+  "profile": {
+    "title": "Perfil",
+    "profileForm": {
+      "modifiableData": "Campos editables",
+      "permanentData": "Campos permanentes"
     },
-    "registerForm": {
-      "email": {
-        "label": "Email",
-        "placeholder": "placeholder@email.com"
-      },
-      "password": {
-        "label": "Contraseña",
-        "placeholder": "contraseña123"
-      },
-      "confirmPassword": {
-        "label": "Confirmar contraseña",
-        "placeholder": "contraseña123"
-      },
-      "firstName": {
-        "label": "Nombre",
-        "placeholder": "Adrián"
-      },
-      "familyName": {
-        "label": "Apellido",
-        "placeholder": "Alonso"
-      },
-      "dni": {
-        "label": "DNI",
-        "placeholder": "49207755K"
-      },
-      "phone": {
-        "label": "Teléfono",
-        "placeholder": "643124967"
-      }
+    "actions": {
+      "editPassword": "Cambiar contraseña",
+      "confirm": "Editar perfil",
+      "logout": "Cerrar sesión",
+      "changePassword": "Cambiar contraseña",
+      "cancel": "Cancelar"
+    },
+    "imgAlt": "Foto de perfil"
+  },
+  "form": {
+    "email": {
+      "label": "Email",
+      "placeholder": "placeholder@email.com"
+    },
+    "password": {
+      "label": "Contraseña",
+      "placeholder": "contraseña123"
+    },
+    "confirmPassword": {
+      "label": "Confirmar contraseña",
+      "placeholder": "contraseña123"
+    },
+    "newPassword": {
+      "label": "Nueva contraseña",
+      "placeholder": "contraseña123"
+    },
+    "firstName": {
+      "label": "Nombre",
+      "placeholder": "Adrián"
+    },
+    "familyName": {
+      "label": "Apellido",
+      "placeholder": "Alonso"
+    },
+    "dni": {
+      "label": "DNI",
+      "placeholder": "49207755K"
+    },
+    "phone": {
+      "label": "Teléfono",
+      "placeholder": "643124967"
     }
   },
   "errors": {
@@ -75,6 +83,8 @@
     },
     "phone": {
       "required": "Campo obligatorio"
-    }
+    },
+    "required": "Porfavor, rellena todos los campos obligatorios",
+    "passwordError": "Las contraseñas deben coincidir"
   }
 }

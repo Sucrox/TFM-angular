@@ -1,1 +1,88 @@
-<p>user-info works!</p>
+<form class="tfm-form form" [formGroup]="form()">
+  <div class="tfm-fieldgroup">
+    <p class="tfm-fieldgroup-title"> {{'profile.profileForm.modifiableData' | translate}} </p>
+    <div class="tfm-fieldgroup-fields">
+      <tfm-input tfmControlValueAccessor
+                 [class]="profileFormModel.familyName.size"
+                 [id]="profileFormModel.familyName.name"
+                 [type]="profileFormModel.familyName.type"
+                 [label]="profileFormModel.familyName.label | translate"
+                 [formControlName]="profileFormModel.familyName.name"
+                 [placeholder]="profileFormModel.familyName.placeholder! | translate"
+                 [ariaLabel]="profileFormModel.familyName.placeholder"
+                 [required]="profileFormModel.familyName.required ?? false"
+      >
+      </tfm-input>
+
+      <tfm-input tfmControlValueAccessor
+                 [class]="profileFormModel.firstName.size"
+                 [id]="profileFormModel.firstName.name"
+                 [type]="profileFormModel.firstName.type"
+                 [label]="profileFormModel.firstName.label | translate"
+                 [formControlName]="profileFormModel.firstName.name"
+                 [placeholder]="profileFormModel.firstName.placeholder! | translate"
+                 [ariaLabel]="profileFormModel.firstName.placeholder"
+                 [fieldState]="profileFormModel.firstName.fieldState"
+                 [required]="profileFormModel.firstName.required ?? false"
+      >
+      </tfm-input>
+    </div>
+  </div>
+  <div class="tfm-fieldgroup">
+    <p class="tfm-fieldgroup-title"> {{'profile.profileForm.permanentData' | translate}} </p>
+    <div class="tfm-fieldgroup-fields">
+      <tfm-input-phone tfmControlValueAccessor
+                       [class]="profileFormModel.phone.size"
+                       [id]="profileFormModel.phone.name"
+                       [type]="profileFormModel.phone.type"
+                       [label]="profileFormModel.phone.label | translate"
+                       [formControlName]="profileFormModel.phone.name"
+                       [placeholder]="profileFormModel.phone.placeholder! | translate"
+                       [ariaLabel]="profileFormModel.phone.placeholder"
+                       [fieldState]="profileFormModel.phone.fieldState"
+      >
+      </tfm-input-phone>
+
+      <tfm-input tfmControlValueAccessor
+                 [class]="profileFormModel.dni.size"
+                 [id]="profileFormModel.dni.name"
+                 [type]="profileFormModel.dni.type"
+                 [label]="profileFormModel.dni.label | translate"
+                 [formControlName]="profileFormModel.dni.name"
+                 [placeholder]="profileFormModel.dni.placeholder! | translate"
+                 [ariaLabel]="profileFormModel.dni.placeholder"
+                 [fieldState]="profileFormModel.dni.fieldState"
+      >
+      </tfm-input>
+
+      <tfm-input-email tfmControlValueAccessor
+                       [class]="profileFormModel.email.size"
+                       [id]="profileFormModel.email.name"
+                 [type]="profileFormModel.email.type"
+                 [label]="profileFormModel.email.label | translate"
+                 [formControlName]="profileFormModel.email.name"
+                 [placeholder]="profileFormModel.email.placeholder! | translate"
+                 [ariaLabel]="profileFormModel.email.placeholder"
+                 [fieldState]="profileFormModel.email.fieldState"
+      >
+      </tfm-input-email>
+    </div>
+  </div>
+</form>
+
+<div class="actions">
+  <tfm-button
+    [label]="'profile.actions.confirm' | translate "
+    [isDisabled]="!form().valid"
+    (click)="form().valid ? updateProfile() : null"
+  ></tfm-button>
+
+  <tfm-button
+    [label]="'profile.actions.logout' | translate"
+    [variant]="ButtonTypeEnum.SECONDARY"
+    (click)="logout()"
+  ></tfm-button>
+
+
+
+</div>

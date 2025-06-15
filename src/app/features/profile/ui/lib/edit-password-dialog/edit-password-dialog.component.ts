@@ -6,6 +6,10 @@ import {FormValidationUtils} from '@tfm-angular/shared/util';
 import {ControlValueAccessorDirective} from '@adrian_alonso/angular-utils-library';
 import {TranslatePipe} from '@ngx-translate/core';
 import {PASSWORD_FORM_MODEL} from '../../../util/lib/password-form';
+import {RibbonStateEnum} from '@adrian_alonso/component-library/enums';
+import "@adrian_alonso/component-library/tfm-input"
+import "@adrian_alonso/component-library/tfm-ribbon"
+import "@adrian_alonso/component-library/tfm-button"
 
 @Component({
   selector: 'profile-edit-password-dialog',
@@ -28,7 +32,7 @@ export class ProfileUiEditPasswordDialogComponent {
 
   public showWarning: WritableSignal<boolean> = signal(false);
   public readonly passwordsDoNotMatch = computed(() => {
-    const password = this.form().get('password')?.value;
+    const password = this.form().get('newPassword')?.value;
     const confirmPassword = this.form().get('confirmPassword')?.value;
     return password !== confirmPassword;
   });
@@ -50,7 +54,7 @@ export class ProfileUiEditPasswordDialogComponent {
   private generateForm(): FormGroup<PasswordForm> {
     return new FormGroup<PasswordForm>({
         password: new FormControl<string | null>(null, {
-          validators: [Validators.email, Validators.required]
+          validators: [Validators.required]
         }),
         newPassword : new FormControl<string | null>(null, {
           validators: [Validators.required]
@@ -59,8 +63,9 @@ export class ProfileUiEditPasswordDialogComponent {
           validators: [Validators.required]
         })
       },
-      {validators: FormValidationUtils.samePasswordValidator()
+      {validators: FormValidationUtils.newPasswordValidator()
       });
   }
 
+  protected readonly ribbonTypeEnum = RibbonStateEnum;
 }

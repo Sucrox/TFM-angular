@@ -6,24 +6,24 @@ export const PASSWORD_FORM_MODEL: PasswordFormGroupModel = {
   password: {
     type: InputTypeEnum.PASSWORD,
     name: 'password',
-    label: 'profile.passwordForm.password.label',
-    placeholder: 'profile.passwordForm.password.placeholder',
+    label: 'form.password.label',
+    placeholder: 'form.password.placeholder',
     size: 'size-50',
     required: true
   },
   confirmPassword: {
     type: InputTypeEnum.PASSWORD,
     name: 'confirmPassword',
-    label: 'profile.passwordForm.confirmPassword.label',
-    placeholder: 'profile.passwordForm.confirmPassword.placeholder',
+    label: 'form.confirmPassword.label',
+    placeholder: 'form.confirmPassword.placeholder',
     size: 'size-50',
     required: true
   },
   newPassword: {
     type: InputTypeEnum.PASSWORD,
     name: 'newPassword',
-    label: 'profile.passwordForm.newPassword.label',
-    placeholder: 'profile.passwordForm.newPassword.placeholder',
+    label: 'form.newPassword.label',
+    placeholder: 'form.newPassword.placeholder',
     size: 'size-50',
     required: true
   }

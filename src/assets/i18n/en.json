@@ -3,78 +3,84 @@
     "title": "Log In",
     "action": "Log In",
     "navigate": {
-      "register": "Don't have an account? Sign up"
-    },
-    "loginForm": {
-      "email": {
-        "label": "Email",
-        "placeholder": "placeholder@email.com"
-      },
-      "password": {
-        "label": "Password",
-        "placeholder": "password123"
-      },
-      "error": "Please fill in all required fields"
+      "register": "Don't have an account? Register"
     }
   },
   "register": {
     "title": "Register",
     "action": "Register",
     "navigate": {
-      "register": "Already have an account? Log in"
+      "login": "Already have an account? Log in"
+    }
+  },
+  "profile": {
+    "profileForm": {
+      "modifiableData": "Editable fields",
+      "permanentData": "Permanent fields"
     },
-    "registerForm": {
-      "email": {
-        "label": "Email",
-        "placeholder": "placeholder@email.com"
-      },
-      "password": {
-        "label": "Password",
-        "placeholder": "password123"
-      },
-      "confirmPassword": {
-        "label": "Confirm Password",
-        "placeholder": "password123"
-      },
-      "firstName": {
-        "label": "First Name",
-        "placeholder": "Adrián"
-      },
-      "familyName": {
-        "label": "Last Name",
-        "placeholder": "Alonso"
-      },
-      "dni": {
-        "label": "ID Number",
-        "placeholder": "49207755K"
-      },
-      "phone": {
-        "label": "Phone",
-        "placeholder": "643124967"
-      }
+    "actions": {
+      "confirm": "Edit profile",
+      "logout": "Log out",
+      "changePassword": "Change password",
+      "cancel": "Cancel"
+    },
+    "imgAlt": "Profile picture"
+  },
+  "form": {
+    "email": {
+      "label": "Email",
+      "placeholder": "placeholder@email.com"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "password123"
+    },
+    "confirmPassword": {
+      "label": "Confirm password",
+      "placeholder": "password123"
+    },
+    "newPassword": {
+      "label": "New password",
+      "placeholder": "password123"
+    },
+    "firstName": {
+      "label": "First name",
+      "placeholder": "Adrian"
+    },
+    "familyName": {
+      "label": "Last name",
+      "placeholder": "Alonso"
+    },
+    "dni": {
+      "label": "ID",
+      "placeholder": "49207755K"
+    },
+    "phone": {
+      "label": "Phone",
+      "placeholder": "643124967"
     }
   },
   "errors": {
     "email": {
-      "required": "This field is required"
+      "required": "Required field"
     },
     "password": {
-      "required": "This field is required"
+      "required": "Required field"
     },
     "confirmPassword": {
-      "required": "This field is required"
+      "required": "Required field"
     },
     "firstName": {
-      "required": "This field is required"
+      "required": "Required field"
     },
     "familyName": {
-      "required": "This field is required"
+      "required": "Required field"
     },
     "dni": {
-      "required": "This field is required"
+      "required": "Required field"
     },
     "phone": {
-      "required": "This field is required"
+      "required": "Required field"
     }
   }
 }

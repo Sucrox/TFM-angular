@@ -5,56 +5,56 @@ export const REGISTER_FORM_MODEL: RegisterFormGroupModel = {
   email: {
     type: InputTypeEnum.TEXT,
     name: 'email',
-    label: 'register.registerForm.email.label',
-    placeholder: 'register.registerForm.email.placeholder',
+    label: 'form.email.label',
+    placeholder: 'form.email.placeholder',
     size: 'size-50',
     required: true
   },
   password: {
     type: InputTypeEnum.PASSWORD,
     name: 'password',
-    label: 'register.registerForm.password.label',
-    placeholder: 'register.registerForm.password.placeholder',
+    label: 'form.password.label',
+    placeholder: 'form.password.placeholder',
     size: 'size-50',
     required: true
   },
   confirmPassword: {
     type: InputTypeEnum.PASSWORD,
     name: 'confirmPassword',
-    label: 'register.registerForm.confirmPassword.label',
-    placeholder: 'register.registerForm.confirmPassword.placeholder',
+    label: 'form.confirmPassword.label',
+    placeholder: 'form.confirmPassword.placeholder',
     size: 'size-50',
     required: true
   },
   firstName: {
     type: InputTypeEnum.TEXT,
     name: 'firstName',
-    label: 'register.registerForm.firstName.label',
-    placeholder: 'register.registerForm.firstName.placeholder',
+    label: 'form.firstName.label',
+    placeholder: 'form.firstName.placeholder',
     size: 'size-30',
     required: true
   },
   familyName: {
     type: InputTypeEnum.TEXT,
     name: 'familyName',
-    label: 'register.registerForm.familyName.label',
-    placeholder: 'register.registerForm.familyName.placeholder',
+    label: 'form.familyName.label',
+    placeholder: 'form.familyName.placeholder',
     size: 'size-30',
     required: true
   },
   dni: {
     type: InputTypeEnum.TEXT,
     name: 'dni',
-    label: 'register.registerForm.dni.label',
-    placeholder: 'register.registerForm.dni.placeholder',
+    label: 'form.dni.label',
+    placeholder: 'form.dni.placeholder',
     size: 'size-30',
     required: true
   },
   phone: {
     type: InputTypeEnum.TEXT,
     name: 'phone',
-    label: 'register.registerForm.phone.label',
-    placeholder: 'register.registerForm.phone.placeholder',
+    label: 'form.phone.label',
+    placeholder: 'form.phone.placeholder',
     size: 'size-50',
     required: true
   }

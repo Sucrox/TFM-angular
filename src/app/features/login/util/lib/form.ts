@@ -5,15 +5,15 @@ export const LOGIN_FORM_MODEL: LoginFormGroupModel= {
   email: {
     type: InputTypeEnum.TEXT,
     name: 'email',
-    label: 'login.loginForm.email.label',
-    placeholder: 'login.loginForm.email.placeholder',
+    label: 'form.email.label',
+    placeholder: 'form.email.placeholder',
     required: true
   },
   password: {
     type: InputTypeEnum.TEXT,
     name: 'password',
-    label: 'login.loginForm.password.label',
-    placeholder: 'login.loginForm.password.label',
+    label: 'form.password.label',
+    placeholder: 'form.password.label',
     required: true
   },
 }
