@@ -1,15 +1,65 @@
 {
   "login": {
-    "loginForm": {
-      "email": {
-        "label": "Email",
-        "placeholder": "placeholder@email.com"
-      },
-      "password": {
-        "label": "Password",
-        "placeholder": "password123"
-      },
-      "error": "Por favor rellena todos los campos obligatorios"
+    "title": "Iniciar sesión",
+    "action": "Iniciar sesión",
+    "navigate": {
+      "register": "¿No tienes una cuenta? Regístrate"
+    }
+  },
+  "register": {
+    "title": "Registrarse",
+    "action": "Registrarse",
+    "navigate": {
+      "login": "¿Ya tienes cuenta? Inicia sesión"
+    }
+  },
+  "profile": {
+    "title": "Perfil",
+    "profileForm": {
+      "modifiableData": "Campos editables",
+      "permanentData": "Campos permanentes"
+    },
+    "actions": {
+      "editPassword": "Cambiar contraseña",
+      "confirm": "Editar perfil",
+      "logout": "Cerrar sesión",
+      "changePassword": "Cambiar contraseña",
+      "cancel": "Cancelar"
+    },
+    "imgAlt": "Foto de perfil"
+  },
+  "form": {
+    "email": {
+      "label": "Email",
+      "placeholder": "placeholder@email.com"
+    },
+    "password": {
+      "label": "Contraseña",
+      "placeholder": "contraseña123"
+    },
+    "confirmPassword": {
+      "label": "Confirmar contraseña",
+      "placeholder": "contraseña123"
+    },
+    "newPassword": {
+      "label": "Nueva contraseña",
+      "placeholder": "contraseña123"
+    },
+    "firstName": {
+      "label": "Nombre",
+      "placeholder": "Adrián"
+    },
+    "familyName": {
+      "label": "Apellido",
+      "placeholder": "Alonso"
+    },
+    "dni": {
+      "label": "DNI",
+      "placeholder": "49207755K"
+    },
+    "phone": {
+      "label": "Teléfono",
+      "placeholder": "643124967"
     }
   },
   "errors": {
@@ -18,6 +68,23 @@
     },
     "password": {
       "required": "Campo obligatorio"
-    }
+    },
+    "confirmPassword": {
+      "required": "Campo obligatorio"
+    },
+    "firstName": {
+      "required": "Campo obligatorio"
+    },
+    "familyName": {
+      "required": "Campo obligatorio"
+    },
+    "dni": {
+      "required": "Campo obligatorio"
+    },
+    "phone": {
+      "required": "Campo obligatorio"
+    },
+    "required": "Porfavor, rellena todos los campos obligatorios",
+    "passwordError": "Las contraseñas deben coincidir"
   }
 }

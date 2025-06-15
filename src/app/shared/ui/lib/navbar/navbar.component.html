@@ -1,11 +1,29 @@
 <header>
   <nav class="header" id="header">
     <div class="links">
-   <span>
+      <span>
+      <span style="display: flex; justify-content: space-between"></span>
     <img style="height: 100px; width: 100px;object-fit: contain" src="assets/shared/logo.png" alt="Home">
-   </span>
+        </span>
     </div>
     <div class="links">
+      <tfm-prefix-selector tfmControlValueAccessor
+                           header
+                           [ariaLabel]="'header.languageSelecto' | translate"
+                           [theme]="userWidgetTheme"
+                           [formControl]="languageWidget"
+                           [prefixType]="langWidgetType"
+                           [options]="supportedLangs"
+
+      >
+
+      </tfm-prefix-selector>
+      @if (isAuthenticated()){
+        <a (click)="logout()">
+          <img src="assets/shared/logout.png" alt="logout">
+          <span class="white"> Logout</span>
+        </a>
+      }
     </div>
   </nav>
 </header>

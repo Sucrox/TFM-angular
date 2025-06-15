@@ -1,1 +1,22 @@
-<p>profile works!</p>
+<div class=" main-wrapper">
+  <h1 class="title">{{ 'profile.title' | translate }}</h1>
+  <hr/>
+  <div class="profile-page">
+    <section class="profile-page__picture">
+      <profile-user-picture [propic]="propic()"> </profile-user-picture>
+      <tfm-link
+        [label]="'profile.actions.editPassword' | translate"
+        [ariaLabel]="'profile.actions.editPassword' |translate"
+        (click)="editPassword()"
+      >
+      </tfm-link>
+
+    </section>
+    <section class="profile-page__data">
+    <profile-user-info
+    [userInfo]="userInfo()"
+    (submit)="updateUserProfile($event)">
+    </profile-user-info>
+    </section>
+  </div>
+</div>

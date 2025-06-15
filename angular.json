@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "tfm",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -27,6 +27,11 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/app/features/profile/ui/assets",
+                "output": "/assets/profile"
+              },
               {
                 "glob": "**/*",
                 "input": "src/app/shared/ui/assets",

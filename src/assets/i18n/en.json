@@ -1,0 +1,86 @@
+{
+  "login": {
+    "title": "Log In",
+    "action": "Log In",
+    "navigate": {
+      "register": "Don't have an account? Register"
+    }
+  },
+  "register": {
+    "title": "Register",
+    "action": "Register",
+    "navigate": {
+      "login": "Already have an account? Log in"
+    }
+  },
+  "profile": {
+    "profileForm": {
+      "modifiableData": "Editable fields",
+      "permanentData": "Permanent fields"
+    },
+    "actions": {
+      "confirm": "Edit profile",
+      "logout": "Log out",
+      "changePassword": "Change password",
+      "cancel": "Cancel"
+    },
+    "imgAlt": "Profile picture"
+  },
+  "form": {
+    "email": {
+      "label": "Email",
+      "placeholder": "placeholder@email.com"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "password123"
+    },
+    "confirmPassword": {
+      "label": "Confirm password",
+      "placeholder": "password123"
+    },
+    "newPassword": {
+      "label": "New password",
+      "placeholder": "password123"
+    },
+    "firstName": {
+      "label": "First name",
+      "placeholder": "Adrian"
+    },
+    "familyName": {
+      "label": "Last name",
+      "placeholder": "Alonso"
+    },
+    "dni": {
+      "label": "ID",
+      "placeholder": "49207755K"
+    },
+    "phone": {
+      "label": "Phone",
+      "placeholder": "643124967"
+    }
+  },
+  "errors": {
+    "email": {
+      "required": "Required field"
+    },
+    "password": {
+      "required": "Required field"
+    },
+    "confirmPassword": {
+      "required": "Required field"
+    },
+    "firstName": {
+      "required": "Required field"
+    },
+    "familyName": {
+      "required": "Required field"
+    },
+    "dni": {
+      "required": "Required field"
+    },
+    "phone": {
+      "required": "Required field"
+    }
+  }
+}

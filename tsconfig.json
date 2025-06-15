@@ -5,20 +5,27 @@
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "baseUrl": "./",
+    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
     "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-
+    "useDefineForClassFields": false,
+    "lib": [
+      "ES2022",
+      "dom",
+      "DOM.Iterable"
+    ],
     "paths": {
       "@assets/*": ["src/app/shared/ui/assets/*"],
       "@environments": ["src/app/environments/environment"],
@@ -30,6 +37,9 @@
 
       "@tfm-angular/login/domain": ["src/app/features/login/domain"],
       "@tfm-angular/login/ui": ["src/app/features/login/ui"],
+
+      "@tfm-angular/register/domain": ["src/app/features/register/domain"],
+      "@tfm-angular/register/ui": ["src/app/features/register/ui"]
     }
   },
   "angularCompilerOptions": {

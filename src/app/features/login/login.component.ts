@@ -20,6 +20,6 @@ export class LoginComponent {
   private readonly authService: DataAccessAuthService = inject(DataAccessAuthService);
 
   public login(loginData: LoginDomainForm) : void {
-    this.authService.login(loginData);
+    this.authService.login(loginData).subscribe();
   }
 }

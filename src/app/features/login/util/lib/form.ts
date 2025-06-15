@@ -1,18 +1,19 @@
-import {DebtorFormEnum, LoginFormGroupModel} from '@tfm-angular/login/domain';
+import {LoginFormGroupModel} from '@tfm-angular/login/domain';
+import {InputTypeEnum} from '../../../../shared/domain/lib/enums/input-type.enum';
 
 export const LOGIN_FORM_MODEL: LoginFormGroupModel= {
   email: {
-    type: DebtorFormEnum.TEXT,
+    type: InputTypeEnum.TEXT,
     name: 'email',
-    label: 'login.loginForm.email.label',
-    placeholder: 'login.loginForm.email.placeholder',
+    label: 'form.email.label',
+    placeholder: 'form.email.placeholder',
     required: true
   },
   password: {
-    type: DebtorFormEnum.TEXT,
+    type: InputTypeEnum.TEXT,
     name: 'password',
-    label: 'login.loginForm.password.label',
-    placeholder: 'login.loginForm.password.label',
+    label: 'form.password.label',
+    placeholder: 'form.password.label',
     required: true
   },
 }
