@@ -1,0 +1,14 @@
+.profile-page{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__picture {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__data{
+    flex:1;
+  }
+}

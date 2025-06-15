@@ -1,1 +1,20 @@
-<p>profile works!</p>
+<div class=" main-wrapper">
+  <h1 class="title">{{ 'profile.title' | translate }}</h1>
+  <hr/>
+  <div class="profile-page">
+    <section class="profile-page__picture">
+      <profile-user-picture [propic]="propic()" [fullName]="fullName()"> </profile-user-picture>
+      <tfm-link
+        [label]="'login.navigate.register' | translate"
+        [ariaLabel]="'login.navigate.register' |translate"
+        (click)="editPassword()"
+      >
+      </tfm-link>
+
+    </section>
+    <section class="profile-page__data">  </section>
+
+  </div>
+
+
+</div>
