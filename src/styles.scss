@@ -1,11 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 body{
   background-color: #F0F0F0 !important;
   min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
 }
 .header{
   width: 100vw;
@@ -65,7 +62,7 @@ img{
   text-align: center
 }
 
-footer {
+.main-footer {
   width: 80%;
   background-color: white;
   box-shadow:  1px 1px 2px 0 rgb(155 195 211 / 30%);

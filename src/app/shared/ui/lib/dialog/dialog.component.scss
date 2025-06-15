@@ -1,0 +1,90 @@
+.dialog[open] {
+  --padding: 1rem;
+  --min-width: 29rem;
+
+  @keyframes open {
+    0% {
+      transform: translateY(3rem);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  & {
+    animation: open .15s linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    box-sizing: border-box;
+    border: none;
+    border-radius: .624rem;
+    padding: 0;
+    max-width: min(100%, 37.5rem);
+    min-width: var(--min-width);
+    background-color: #FFFFFF;
+  }
+
+
+  &::backdrop {
+    background-color: #00000080;
+  }
+
+  .dialog__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--padding);
+    background-color: #001A71;
+
+    &--no-title {
+      flex-direction: row-reverse;
+    }
+
+    h3 {
+      color: #FFFFFF;
+    }
+
+    .header__close {
+      cursor: pointer;
+    }
+  }
+
+  .dialog__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1rem;
+    padding: var(--padding) var(--padding) 0 var(--padding);
+    border-top: 1px solid #F0F0F0;
+
+    .footer__action {
+      width: 100%;
+    }
+  }
+
+  >*:not(.dialog__header):not(.dialog__footer) {
+    padding: var(--padding);
+    flex: 1;
+  }
+
+  @media screen and (max-width: 40.0624rem) {
+    --min-width: 100%;
+    margin-bottom: 0;
+    height: 90vh;
+
+    @keyframes open {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
+
+}

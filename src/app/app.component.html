@@ -1,3 +1,10 @@
 <tfm-navbar></tfm-navbar>
-<router-outlet></router-outlet>
+<main>
+  @defer {
+    <router-outlet></router-outlet>
+  }
+</main>
+<tfm-dialog #dialogElement>
+  <ng-container #dialogContainer></ng-container>
+</tfm-dialog>
 <tfm-footer></tfm-footer>

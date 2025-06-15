@@ -13,6 +13,7 @@ import {headerInterceptor} from '@tfm-angular/shared/data-access';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {LangsEnum} from './shared/domain/lib/enums/langs-enum';
+import {AppStore} from '@tfm-angular/shared/data-access';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -38,6 +39,7 @@ export const appConfig: ApplicationConfig = {
         deps: [HttpClient]
       }
     })),
-    provideAppInitializer(initializeTranslateService)
+    provideAppInitializer(initializeTranslateService),
+    { provide: AppStore }
   ]
 };
