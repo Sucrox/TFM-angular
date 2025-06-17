@@ -29,7 +29,7 @@ export class DataAccessAuthService extends DataAccessAbstractHttpService {
         phone: response.phone,
       });
 
-      this.router.navigateByUrl(DomainRoutesEnum.PROFILE);
+      this.router.navigateByUrl(DomainRoutesEnum.PRODUCTS);
       console.log('Autenticación completada');
     }),
     catchError((error) => {

@@ -11,7 +11,6 @@ export class ProfileService extends DataAccessAbstractHttpService{
 
   private readonly state = inject(AppStore);
 
-
   protected override basePath : string ='users'
 
   constructor() {
