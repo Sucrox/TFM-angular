@@ -1,7 +1,7 @@
 import {
   ApplicationConfig,
   importProvidersFrom,
-  inject,
+  inject, LOCALE_ID,
   provideAppInitializer,
   provideZoneChangeDetection
 } from '@angular/core';
@@ -40,6 +40,7 @@ export const appConfig: ApplicationConfig = {
       }
     })),
     provideAppInitializer(initializeTranslateService),
-    { provide: AppStore }
+    { provide: AppStore },
+    { provide: LOCALE_ID, useValue: 'es' }
   ]
 };

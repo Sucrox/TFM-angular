@@ -13,6 +13,15 @@
       "login": "¿Ya tienes cuenta? Inicia sesión"
     }
   },
+  "products": {
+    "title": "Productos disponibles",
+    "table": {
+      "name": "Nombre",
+      "price": "Precio",
+      "category": "categoría",
+      "expirationDate": "Fecha de caducidad"
+    }
+  },
   "profile": {
     "title": "Perfil",
     "profileForm": {
@@ -86,5 +95,12 @@
     },
     "required": "Porfavor, rellena todos los campos obligatorios",
     "passwordError": "Las contraseñas deben coincidir"
+  },
+  "category": {
+    "FRUITS": "Frutas",
+    "VEGETABLES": "Verduras",
+    "DAIRY": "Lácteos",
+    "BAKERY": "Panadería",
+    "BEVERAGES": "Bebidas"
   }
 }

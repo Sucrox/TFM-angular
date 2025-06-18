@@ -1,7 +1,7 @@
 {
   "login": {
-    "title": "Log In",
-    "action": "Log In",
+    "title": "Log in",
+    "action": "Log in",
     "navigate": {
       "register": "Don't have an account? Register"
     }
@@ -13,12 +13,23 @@
       "login": "Already have an account? Log in"
     }
   },
+  "products": {
+    "title": "Available products",
+    "table": {
+      "name": "Name",
+      "price": "Price",
+      "category": "Category",
+      "expirationDate": "Expiration date"
+    }
+  },
   "profile": {
+    "title": "Profile",
     "profileForm": {
       "modifiableData": "Editable fields",
       "permanentData": "Permanent fields"
     },
     "actions": {
+      "editPassword": "Change password",
       "confirm": "Edit profile",
       "logout": "Log out",
       "changePassword": "Change password",
@@ -45,7 +56,7 @@
     },
     "firstName": {
       "label": "First name",
-      "placeholder": "Adrian"
+      "placeholder": "Adrián"
     },
     "familyName": {
       "label": "Last name",
@@ -81,6 +92,15 @@
     },
     "phone": {
       "required": "Required field"
-    }
+    },
+    "required": "Please fill in all required fields",
+    "passwordError": "Passwords must match"
+  },
+  "category": {
+    "FRUITS": "Fruits",
+    "VEGETABLES": "Vegetables",
+    "DAIRY": "Dairy",
+    "BAKERY": "Bakery",
+    "BEVERAGES": "Beverages"
   }
 }

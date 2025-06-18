@@ -5,9 +5,11 @@
     <tfm-product-table
       [rows]="products()!"
       [isLoading]="isLoading()"
-      [totalItems]="20"
-      [itemsPerPage]="10"
-
+      [totalItems]="totalItems()"
+      [itemsPerPage]="itemsPerPage()"
+      [currentPage]="currentPage().page!"
+      (pageChange)="onPageChange($event)"
+      (changePageSize)="onPageSizeChange($event)"
     ></tfm-product-table>
   </div>
 </div>

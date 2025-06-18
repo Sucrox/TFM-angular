@@ -1,22 +1,21 @@
 import {TableColumn} from '@adrian_alonso/component-library/interfaces';
-import {ProductTableInterface} from '../../domain/lib/product-table.interface';
-import {TableColAlignmentEnum} from '@adrian_alonso/component-library/enums';
+import {ProductTableInterface} from '../../domain/lib/product.interface';
 export const tableHeadings: TableColumn<ProductTableInterface>[] = [
   {
-    label: 'Name',
+    label: 'products.table.name',
     key: 'name',
     isMainCol: true,
   },
   {
-    label: 'Price',
+    label: 'products.table.price',
     key: 'price',
   },
   {
-    label: 'Expiration Date',
+    label: 'products.table.expirationDate',
     key: 'expirationDate',
   },
   {
-    label: 'Category',
+    label: 'products.table.category',
     key: 'category',
   }
 ];

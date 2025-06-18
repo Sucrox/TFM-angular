@@ -4,7 +4,9 @@
   [rows]="mappedRows()"
   [isLoading]="isLoading()"
   [totalItems]="totalItems()"
-  [itemsPerPage]="itemsPerPage()">
-<!--  (itemsperpagechange)="onItemsPerPageChange($event)"-->
-
+  [currentPage]="currentPage()"
+  [itemsPerPage]="itemsPerPage()"
+  (pagechange)="onPageChange($event)"
+  (itemsperpagechange)="onItemsPerPageChange($event)"
+>
 </tfm-table>
