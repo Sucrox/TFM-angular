@@ -1,0 +1,12 @@
+<tfm-table
+  [tableTitle]="'products' | translate"
+  [headings]="headings"
+  [rows]="mappedRows()"
+  [isLoading]="isLoading()"
+  [totalItems]="totalItems()"
+  [currentPage]="currentPage()"
+  [itemsPerPage]="itemsPerPage()"
+  (pagechange)="onPageChange($event)"
+  (itemsperpagechange)="onItemsPerPageChange($event)"
+>
+</tfm-table>

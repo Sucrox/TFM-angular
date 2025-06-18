@@ -12,6 +12,13 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
+    path: DomainRoutesEnum.PRODUCTS,
+    loadChildren: () => import('./features/products/products.routes').then(
+      (m)=> m.productsRoutes),
+    title: 'Products',
+    canActivate: [authGuard]
+  },
+  {
     path: DomainRoutesEnum.LOGIN,
     loadComponent: () => import('./features/login/login.component').then(
       (m)=> m.LoginComponent),
@@ -28,7 +35,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: DomainRoutesEnum.PROFILE,
+    redirectTo: DomainRoutesEnum.PRODUCTS,
     pathMatch: 'full'
   }
 ];
