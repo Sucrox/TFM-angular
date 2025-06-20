@@ -1,1 +1,44 @@
-<p>product-detail works!</p>
+<section class="dialog__body">
+  <product-picture [productPic]="productPic()"> </product-picture>
+  <div class="detail">
+    <div class="detail-title">
+      <h2> {{product().name}} </h2>
+      <span class="description">{{product().description}}</span>
+    </div>
+    <div class="info">
+      <div class="info-block">
+        <div class="block">
+          <h4> Category</h4>
+          <span>{{ ('category.' + product().category) | translate }}</span>
+        </div>
+        <div class="block">
+          <h4> Expiration Date</h4>
+          <span>{{product().expirationDate | date}}</span>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="block">
+          <h3> Price</h3>
+          <span>{{product().price | currency:'€'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="dialog__footer">
+  <div class="center">
+    <tfm-input
+      tfmControlValueAccessor
+      [type]="InputTypeEnum.NUMBER"
+      name="quantity"
+      [formControl]="quantity">
+    </tfm-input>
+
+    <tfm-button
+      [label]="'products.detail.action' | translate"
+      [disabled]="!quantity.valid"
+      (click)="quantity.valid? addProductToCart(): null"
+    ></tfm-button>
+  </div>
+</section>
