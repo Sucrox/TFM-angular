@@ -1,3 +1,4 @@
+import {CellRenderer} from '@adrian_alonso/component-library/interfaces';
 
 export interface ProductInterface {
   name: string;
@@ -11,9 +12,11 @@ export interface ProductInterface {
 
 export interface ProductTableInterface {
   name: string;
-  price: number;
+  price: string;
   expirationDate: string;
   category: CategoryEnum;
+  action?: string | CellRenderer<ProductTableInterface>;
+
 }
 
 export enum CategoryEnum {

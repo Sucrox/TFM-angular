@@ -14,7 +14,6 @@ import {ProductTableComponent} from './features/product-table/product-table.comp
 import {TablePageChangeEvent} from '../../shared/domain/lib/interfaces/table.interface';
 import {TableService} from './util/lib/table-util.service';
 
-
 @Component({
   selector: 'app-products',
   imports: [
@@ -49,15 +48,6 @@ export class ProductsComponent {
 
   public readonly isLoading: Signal<boolean> = signal<boolean>(false);
 
-  public onPageChange(event: TablePageChangeEvent) {
-    const { firstInPage } = event;
-    this.productState.setOffset(firstInPage);
-    this.currentPage.set(event);
-  }
-  public onPageSizeChange(event: number) {
-    this.productState.setLimit(event);
-  }
-
   constructor() {
     effect(() => {
       this.updateLastLoadedPage(this.currentPage().page, this.fetchedProducts())
@@ -68,6 +58,22 @@ export class ProductsComponent {
     effect(() => {
       this.pageInView = this.currentPage().page
     });
+  }
+
+  public onPageChange(event: TablePageChangeEvent) {
+    const { firstInPage } = event;
+    this.productState.setOffset(firstInPage);
+    this.currentPage.set(event);
+  }
+  public onPageSizeChange(event: number) {
+    this.productState.setLimit(event);
+  }
+
+  public onProductSelected(event: string) {
+    const product : ProductInterface | null = this.productState.getProductByBarcode(event);
+    if (product){
+      this.state.addProductToCart(product);
+    }
   }
 
   private updateLastLoadedPage(currentPage:number, fetchedProducts: Map<number, Partial<ProductInterface>[]>):void{

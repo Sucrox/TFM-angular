@@ -1,11 +1,11 @@
 import {
   Component, computed,
   CUSTOM_ELEMENTS_SCHEMA,
-  effect, inject,
+  inject,
   input,
-  InputSignal, OnInit,
+  InputSignal,
   output,
-  OutputEmitterRef, signal, Signal, WritableSignal
+  OutputEmitterRef, Signal
 } from '@angular/core';
 import '@adrian_alonso/component-library/tfm-table';
 import {
@@ -32,12 +32,12 @@ import {TableItemsPerPageEnum} from '@adrian_alonso/component-library/enums';
   styleUrl: './product-table.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ProductTableComponent implements OnInit{
+export class ProductTableComponent{
 
   private translateService: TranslateService= inject(TranslateService)
 
   //Inputs
-  public headings: TableColumn<ProductTableInterface>[] = tableHeadings;
+  public headings: TableColumn<ProductTableInterface>[];
   public readonly rows: InputSignal<Partial<ProductInterface>[]>  = input<Partial<ProductInterface>[]> ([]);
   public isLoading: InputSignal<boolean>= input<boolean>(false);
   public readonly totalItems: InputSignal<number| null>= input<number | null>(null);
@@ -53,12 +53,19 @@ export class ProductTableComponent implements OnInit{
   //Outputs
   public readonly pageChange: OutputEmitterRef<TablePageChangeEvent> = output<TablePageChangeEvent>();
   public readonly changePageSize: OutputEmitterRef<number> = output<number>();
+  public readonly productSelected: OutputEmitterRef<string> = output<string>();
 
-  ngOnInit(): void {
-    this.headings = tableHeadings.map(col => ({
-      ...col,
-      label: this.translateService.instant(col.label)
-    }));
+  constructor() {
+    const translate = (key: string) => this.translateService.instant(key);
+    this.headings = this.initTableHeadings(translate);
+  }
+
+  private initTableHeadings(translate: (key: string) => string): TableColumn<ProductTableInterface>[] {
+    return tableHeadings(this.onProductSelected.bind(this), translate);
+  }
+
+  private onProductSelected(rowData: TableRow<ProductTableInterface>) {
+    this.productSelected.emit(rowData.id);
   }
 
   public onPageChange(event: Event) {
