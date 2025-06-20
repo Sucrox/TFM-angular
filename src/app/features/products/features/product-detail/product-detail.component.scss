@@ -1,0 +1,42 @@
+.dialog__body{
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  padding: 1rem;
+
+  product-picture{
+    width: 45%;
+    display: flex;
+  }
+  .detail{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+  }
+
+  h2,h4{
+    margin-bottom: 1rem;
+  }
+  .description{
+    max-width: 50%;
+  }
+  .info{
+    display: flex;
+    flex-direction: column;
+  }
+  .info-block{
+    display: flex;
+    gap: 3rem;
+
+  }
+
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+tfm-input{
+  margin-top: 2rem;
+  width: 8rem;
+}

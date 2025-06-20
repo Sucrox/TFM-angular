@@ -34,6 +34,11 @@
               },
               {
                 "glob": "**/*",
+                "input": "src/app/features/products/ui/assets",
+                "output": "/assets/products"
+              },
+              {
+                "glob": "**/*",
                 "input": "src/app/shared/ui/assets",
                 "output": "/assets/shared"
               }

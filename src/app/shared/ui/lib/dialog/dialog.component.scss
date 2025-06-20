@@ -1,6 +1,6 @@
 .dialog[open] {
   --padding: 1rem;
-  --min-width: 29rem;
+  --min-width: 50rem;
 
   @keyframes open {
     0% {
@@ -23,7 +23,7 @@
     border: none;
     border-radius: .624rem;
     padding: 0;
-    max-width: min(100%, 37.5rem);
+    max-width: 80%;
     min-width: var(--min-width);
     background-color: #FFFFFF;
   }

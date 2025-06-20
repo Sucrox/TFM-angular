@@ -22,14 +22,17 @@ export default (
       return { productsInCart: updatedMap };
     });
   },
-  addProductToCart(product: ProductInterface): void {
+  addProductToCart(product: ProductInterface, quantity: number = 1): void {
     patchState(store, (state: AppState) => {
       const currentMap = new Map(state.productsInCart ?? []);
       const existing = currentMap.get(product.barcode);
 
+      const existingQty = existing ? Number(existing.quantity) : 0;
+      const addedQty = Number(quantity);
+
       currentMap.set(product.barcode, {
         product,
-        quantity: existing ? existing.quantity + 1 : 1,
+        quantity: existingQty + addedQty,
       });
 
       return { productsInCart: currentMap };

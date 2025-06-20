@@ -54,6 +54,7 @@ export class ProductTableComponent{
   public readonly pageChange: OutputEmitterRef<TablePageChangeEvent> = output<TablePageChangeEvent>();
   public readonly changePageSize: OutputEmitterRef<number> = output<number>();
   public readonly productSelected: OutputEmitterRef<string> = output<string>();
+  public readonly productNameClick: OutputEmitterRef<string> = output<string>();
 
   constructor() {
     const translate = (key: string) => this.translateService.instant(key);
@@ -61,11 +62,14 @@ export class ProductTableComponent{
   }
 
   private initTableHeadings(translate: (key: string) => string): TableColumn<ProductTableInterface>[] {
-    return tableHeadings(this.onProductSelected.bind(this), translate);
+    return tableHeadings(this.onProductNameClick.bind(this),this.onProductSelected.bind(this), translate);
   }
 
   private onProductSelected(rowData: TableRow<ProductTableInterface>) {
     this.productSelected.emit(rowData.id);
+  }
+  private onProductNameClick(rowData: TableRow<ProductTableInterface>) {
+    this.productNameClick.emit(rowData.id);
   }
 
   public onPageChange(event: Event) {

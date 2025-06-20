@@ -13,6 +13,8 @@ import {ProductInterface} from './domain/lib/product.interface';
 import {ProductTableComponent} from './features/product-table/product-table.component';
 import {TablePageChangeEvent} from '../../shared/domain/lib/interfaces/table.interface';
 import {TableService} from './util/lib/table-util.service';
+import {UtilDialogService} from '../../shared/util/lib/services/dialog/dialog.service';
+import {ProductDetailComponent} from './features/product-detail/product-detail.component';
 
 @Component({
   selector: 'app-products',
@@ -31,6 +33,7 @@ export class ProductsComponent {
   public readonly productState= inject(ProductListStore) ;
   public readonly state= inject(AppStore);
   public readonly tableService: TableService= inject(TableService);
+  public readonly dialogService: UtilDialogService= inject(UtilDialogService);
 
   public readonly products: Signal<Partial<ProductInterface>[] | null> = computed(() =>
     this.tableService.getTotalRows(this.fetchedProducts(), this.totalItems() ?? 0, this.pageSize()));
@@ -73,6 +76,19 @@ export class ProductsComponent {
     const product : ProductInterface | null = this.productState.getProductByBarcode(event);
     if (product){
       this.state.addProductToCart(product);
+    }
+  }
+  public onProductNameClick(event: string) {
+    const product : ProductInterface | null = this.productState.getProductByBarcode(event);
+    if (product) {
+      this.dialogService.open(ProductDetailComponent, {
+        title: 'products.detail.title',
+        data: {
+          product: product,
+        }
+      }).subscribe((amount: number) => {
+        this.state.addProductToCart(product, amount);
+      });
     }
   }
 

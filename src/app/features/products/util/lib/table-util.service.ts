@@ -27,7 +27,7 @@ export class TableService {
     return rows.map((row: Partial<ProductInterface>) => ({
       id: row.barcode!,
       data: {
-        name: row.name ?? '',
+        name: `<tfm-link label="${row.name}" style="width: 100%; display block" ></tfm-link>`,
         price: this.currencyPipe.transform(row.price ?? 0, 'EUR', 'symbol', '1.2-2') ?? '0',
         expirationDate: this.datePipe.transform(row.expirationDate, 'dd/MM/yyyy') ?? '',
         category: this.translateService.instant(`category.${row.category}`),
@@ -75,17 +75,4 @@ export class TableService {
 
     return result;
   }
-  public onCLick():void {
-    console.log('click')
-  }
-
-  // public static iconRenderer(icon: FbkIconEnum): (row: FbkTableRow) => string {
-  //   return (row: FbkTableRow) => `
-  //   <fbk-icon-button icon="${icon}"
-  //                    variant="${FbkButtonType.ACCESSORY}"
-  //                    size="${FbkButtonSize.S}"
-  //                    ${row.disabled ? 'is-disabled' : ''}
-  //   ></fbk-icon-button>
-  // `;
-  // }
 }
