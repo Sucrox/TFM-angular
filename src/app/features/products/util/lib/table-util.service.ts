@@ -4,6 +4,7 @@ import {TableRow} from '@adrian_alonso/component-library/interfaces';
 import {uniqueId} from 'lodash-es';
 import {CurrencyPipe, DatePipe} from '@angular/common';
 import {TranslateService} from '@ngx-translate/core';
+import {ButtonType, IconEnum} from '@adrian_alonso/component-library/enums';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,13 @@ export class TableService {
         name: row.name ?? '',
         price: this.currencyPipe.transform(row.price ?? 0, 'EUR', 'symbol', '1.2-2') ?? '0',
         expirationDate: this.datePipe.transform(row.expirationDate, 'dd/MM/yyyy') ?? '',
-        category: this.translateService.instant(`category.${row.category}`) || (row.category ?? '')
+        category: this.translateService.instant(`category.${row.category}`),
+        action: (rowData) => `
+        <tfm-icon-button
+          icon="${IconEnum.SHOPPING_CART_FILL}"
+          variant="${ButtonType.ACCESSORY}"
+        ></tfm-icon-button>
+      `
       }
     }));
   }
@@ -68,5 +75,17 @@ export class TableService {
 
     return result;
   }
+  public onCLick():void {
+    console.log('click')
+  }
 
+  // public static iconRenderer(icon: FbkIconEnum): (row: FbkTableRow) => string {
+  //   return (row: FbkTableRow) => `
+  //   <fbk-icon-button icon="${icon}"
+  //                    variant="${FbkButtonType.ACCESSORY}"
+  //                    size="${FbkButtonSize.S}"
+  //                    ${row.disabled ? 'is-disabled' : ''}
+  //   ></fbk-icon-button>
+  // `;
+  // }
 }

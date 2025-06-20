@@ -42,7 +42,11 @@ export const ProductListStore = signalStore(
     setOffset(offset: number): void {
       patchState(store, () => ({ offset }));
     },
-    searchTransactions: rxMethod<LoadProductsParams>((source$) =>
+    getProductByBarcode(barcode: string): ProductInterface | null {
+      const products = store.products() ?? [];
+      return products.find((p: ProductInterface) => p.barcode === barcode);
+    },
+    searchProducts: rxMethod<LoadProductsParams>((source$) =>
       source$.pipe(
         switchMap(({ offset, limit }) =>
           productService.getAllProducts(offset, limit).pipe(
@@ -59,7 +63,7 @@ export const ProductListStore = signalStore(
   })),
 withHooks({
   onInit: (store) => {
-    store.searchTransactions(store._loadProductsPayload);
+    store.searchProducts(store._loadProductsPayload);
   }
 })
 
