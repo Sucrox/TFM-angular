@@ -1,0 +1,26 @@
+<div class="main-wrapper">
+  <div class="table-wrapper">
+    <h2 class="title">{{ 'shoppingCart.title' | translate }}</h2>
+    <hr/>
+    <shopping-table
+      [rows]="products()"
+      [totalItems]="totalItems()"
+      [itemsPerPage]="itemsPerPage()"
+      (productDeleted)="onProductDeleted($event)"
+      (productIncrement)="onProductIncrement($event)"
+      (productDecrement)="onProductDecrement($event)"
+    ></shopping-table>
+  </div>
+  <div class="side-wrapper">
+    <div class="resume">
+      <div>
+        <span>{{'shoppingCart.total' | translate}}</span>
+        <span>{{total()}}</span>
+      </div>
+      <tfm-button
+        [label]="'shoppingCart.confirm' | translate"
+        [variant]="ButtonTypeEnum.SECONDARY"
+      ></tfm-button>
+    </div>
+  </div>
+</div>

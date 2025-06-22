@@ -1,4 +1,11 @@
-<tfm-navbar></tfm-navbar>
+@defer (when currentRoute()){
+    <tfm-navbar
+      [routes]="routes()"
+      [hasLogout]="isLogin()"
+      [user]="user()"
+      (logout)="logout()"
+    ></tfm-navbar>
+}
 <main>
   @defer {
     <router-outlet></router-outlet>

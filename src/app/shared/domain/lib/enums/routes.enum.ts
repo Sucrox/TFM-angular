@@ -3,4 +3,5 @@ export enum DomainRoutesEnum {
   REGISTER= 'register',
   PROFILE= 'profile',
   PRODUCTS= 'products',
+  SHOPPING_CART= 'cart',
 }

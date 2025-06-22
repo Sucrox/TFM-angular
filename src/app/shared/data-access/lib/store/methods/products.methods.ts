@@ -37,5 +37,54 @@ export default (
 
       return { productsInCart: currentMap };
     });
-  }
+  },
+  deleteProduct(barcode: string): void {
+    patchState(store, (state: AppState) => {
+      if (!state.productsInCart) return {};
+
+      const currentMap = new Map(state.productsInCart);
+      currentMap.delete(barcode);
+
+      return { productsInCart: currentMap };
+    });
+  },
+  decrementProduct(barcode: string): void {
+    patchState(store, (state: AppState) => {
+      if (!state.productsInCart) return {};
+
+      const currentMap = new Map(state.productsInCart);
+      const entry = currentMap.get(barcode);
+
+      if (!entry) return {};
+
+      const newQuantity = entry.quantity - 1;
+      if (newQuantity <= 0) {
+        currentMap.delete(barcode);
+      } else {
+        currentMap.set(barcode, {
+          product: entry.product,
+          quantity: newQuantity,
+        });
+      }
+
+      return { productsInCart: currentMap };
+    });
+  },
+  incrementProduct(barcode: string): void {
+    patchState(store, (state: AppState) => {
+      if (!state.productsInCart) return {};
+
+      const currentMap = new Map(state.productsInCart);
+      const entry = currentMap.get(barcode);
+
+      if (!entry) return {};
+
+      currentMap.set(barcode, {
+        product: entry.product,
+        quantity: entry.quantity + 1,
+      });
+
+      return { productsInCart: currentMap };
+    });
+  },
 })

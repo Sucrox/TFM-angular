@@ -1,29 +1,58 @@
 <header>
   <nav class="header" id="header">
     <div class="links">
-      <span>
-      <span style="display: flex; justify-content: space-between"></span>
-    <img style="height: 100px; width: 100px;object-fit: contain" src="assets/shared/logo.png" alt="Home">
-        </span>
-    </div>
-    <div class="links">
-      <tfm-prefix-selector tfmControlValueAccessor
-                           header
-                           [ariaLabel]="'header.languageSelecto' | translate"
-                           [theme]="userWidgetTheme"
-                           [formControl]="languageWidget"
-                           [prefixType]="langWidgetType"
-                           [options]="supportedLangs"
+      <div>
+        <img style="height: 100px; width: 100px;object-fit: contain" src="assets/shared/logo.png" alt="Home">
+      </div>
 
-      >
-
-      </tfm-prefix-selector>
-      @if (isAuthenticated()){
-        <a (click)="logout()">
-          <img src="assets/shared/logout.png" alt="logout">
-          <span class="white"> Logout</span>
-        </a>
+      @if(routes().length>0){
+        <div class="row">
+          @for(route of routes(); track route.route){
+            <a class="link__router ui-label-small"
+               role="menuitem"
+               [class.links__route--active]="isActiveRoute(route.route)"
+               (click)="goTo(route.route)"
+               [attr.aria-label]="route.text"
+               tabindex="0"
+            >
+              {{route.text}}
+            </a>
+          }
+        </div>
       }
+
+      <div class="row">
+
+        <tfm-prefix-selector tfmControlValueAccessor
+                             header
+                             [ariaLabel]="'header.languageSelecto' | translate"
+                             [theme]="userWidgetTheme"
+                             [formControl]="languageWidget"
+                             [prefixType]="langWidgetType"
+                             [options]="supportedLangs"
+
+        >
+
+        </tfm-prefix-selector>
+
+        @if (user()) {
+          <tfm-user-widget
+            [name]="fullName()"
+            [theme]="Theme.DARK"
+            [avatarType]="UserTypeEnum.INITIALS"
+            [avatarContent]="initials()"
+            (click)="goTo(DomainRoutesEnum.PROFILE)"
+          >
+          </tfm-user-widget>
+        }
+
+        @if (isLogin()){
+          <a (click)="logout.emit()">
+            <img src="assets/shared/logout.png" alt="logout">
+            <span class="white"> Logout</span>
+          </a>
+        }
+      </div>
     </div>
   </nav>
 </header>
