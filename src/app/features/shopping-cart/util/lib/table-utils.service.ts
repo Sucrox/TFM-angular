@@ -2,7 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {TableRow} from '@adrian_alonso/component-library/interfaces';
 import {CurrencyPipe, DatePipe} from '@angular/common';
 import {TranslateService} from '@ngx-translate/core';
-import {ProductInterface} from '../../products/domain/lib/product.interface';
+import {ProductInterface} from '../../../products/domain/lib/product.interface';
 import {ButtonType, IconEnum} from '@adrian_alonso/component-library/enums';
 
 @Injectable({

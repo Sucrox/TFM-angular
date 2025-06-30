@@ -1,5 +1,5 @@
 import {TableColumn, TableRow} from '@adrian_alonso/component-library/interfaces';
-import {ProductTableInterface} from '../../domain/lib/product.interface';
+import {ProductTableInterface} from '../../domain';
 
 export type OnProductNameClick = (rowData : TableRow<ProductTableInterface>) => void;
 export type OnProductSelected = (rowData : TableRow<ProductTableInterface>) => void;
@@ -28,7 +28,7 @@ export const tableHeadings = (
 
   },
   {
-    label: translate('products.table.action'),
+    label: '',
     key: 'action',
     onCellClicked: onProductSelected,
   }

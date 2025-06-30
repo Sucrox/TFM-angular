@@ -1,4 +1,5 @@
 import {TableColumn, TableRow} from '@adrian_alonso/component-library/interfaces';
+import {TableColAlignmentEnum} from '@adrian_alonso/component-library/enums';
 
 export type OnProductIncrement = (rowData : TableRow<any>) => void;
 export type OnProductDecrement = (rowData : TableRow<any>) => void;
@@ -11,30 +12,31 @@ export const tableHeadings = (
   translate: (key: string) => string
 ):TableColumn<any>[] => ([
   {
-    label: translate('products.table.name'),
+    label: translate('shoppingCart.table.name'),
     key: 'name',
     isMainCol: true,
   },
   {
-    label: translate('products.table.price'),
+    label: translate('shoppingCart.table.price'),
     key: 'price',
   },
   {
-    label: translate('products.table.decrement'),
+    label: '',
     key: 'decrement',
     onCellClicked: onProductDecrement,
   },
   {
-    label: translate('products.table.quantity'),
+    label: translate('shoppingCart.table.quantity'),
     key: 'quantity',
+    alignment: TableColAlignmentEnum.CENTER,
   },
   {
-    label: translate('products.table.increment'),
+    label: '',
     key: 'increment',
     onCellClicked: onProductIncrement,
   },
   {
-    label: translate('products.table.action'),
+    label: '',
     key: 'delete',
     onCellClicked: onProductDeleted,
   },

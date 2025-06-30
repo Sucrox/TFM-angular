@@ -37,6 +37,11 @@
     },
     "imgAlt": "Profile picture"
   },
+  "shoppingCart": {
+    "title": "Resumen de la compra",
+    "total": "Total:",
+    "confirm": "Realizar pedido:"
+  },
   "form": {
     "email": {
       "label": "Email",

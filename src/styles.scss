@@ -4,6 +4,12 @@ body{
   margin: 0;
   overflow-x: hidden;
 }
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 76.5vh;
+}
+
 .header{
   width: 100vw;
   height: 80px;
@@ -75,10 +81,11 @@ img{
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: relative;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  margin-top: 5rem;
 }
 .flag-container {
   display: flex;

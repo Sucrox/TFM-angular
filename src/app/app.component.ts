@@ -3,7 +3,7 @@ import {
   computed,
   CUSTOM_ELEMENTS_SCHEMA,
   effect,
-  inject,
+  inject, OnDestroy,
   OnInit,
   Signal,
   viewChild,
@@ -29,7 +29,7 @@ import {UserInterface} from './shared/domain/lib/interfaces/user.interface';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   standalone: true,
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy{
   title = 'tfm-angular';
 
   private readonly state = inject(AppStore);
@@ -64,6 +64,11 @@ export class AppComponent implements OnInit{
 
   public ngOnInit() {
     this.dialogService.init(this.dialogElement(), this.dialogContainer(), 'Close')
+    window.addEventListener('beforeunload', this.handleBeforeUnload.bind(this));
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('beforeunload', this.handleBeforeUnload.bind(this));
   }
 
   public logout(): void{
@@ -79,6 +84,10 @@ export class AppComponent implements OnInit{
       filter((event: Event) => event instanceof NavigationEnd),
       map(() => this.router.url.replace('/','') as DomainRoutesEnum),
     ), {initialValue: DomainRoutesEnum.PRODUCTS});
+  }
+
+  private handleBeforeUnload(event: BeforeUnloadEvent): void {
+    this.logout();
   }
 
 }

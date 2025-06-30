@@ -1,3 +1,4 @@
+<div class="page-container">
 @defer (when currentRoute()){
     <tfm-navbar
       [routes]="routes()"
@@ -14,4 +15,5 @@
 <tfm-dialog #dialogElement>
   <ng-container #dialogContainer></ng-container>
 </tfm-dialog>
-<!--<tfm-footer></tfm-footer>-->
+<tfm-footer></tfm-footer>
+</div>

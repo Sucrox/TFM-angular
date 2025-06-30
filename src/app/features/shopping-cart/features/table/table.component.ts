@@ -11,8 +11,8 @@ import {
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {TableColumn, TableRow} from '@adrian_alonso/component-library/interfaces';
 import {ProductInterface, ProductTableInterface} from '../../../products/domain/lib/product.interface';
-import {TableService} from '../../util/table-utils.service';
-import {tableHeadings} from '../../util/table-utils';
+import {TableService} from '../../util/lib/table-utils.service';
+import {tableHeadings} from '../../util/lib/table-utils';
 import {IconEnum} from '@adrian_alonso/component-library/enums';
 
 @Component({

@@ -1,8 +1,6 @@
-import {inject, Injectable} from '@angular/core';
-import {AppStore, DataAccessAbstractHttpService} from '@tfm-angular/shared/data-access';
-import {UpdateProfile} from '../../../profile/domain/lib/profile.interface';
-import {Observable, tap} from 'rxjs';
-import {UserInterface} from '../../../../shared/domain/lib/interfaces/user.interface';
+import {Injectable} from '@angular/core';
+import {DataAccessAbstractHttpService} from '@tfm-angular/shared/data-access';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

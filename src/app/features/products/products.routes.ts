@@ -1,6 +1,5 @@
 import {Route} from '@angular/router';
-
-import {ProductDomainRoutesEnum} from './domain/lib/routes.enum';
+import {ProductDomainRoutesEnum} from './domain';
 
 export const productsRoutes: Route[] = [
   {

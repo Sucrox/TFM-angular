@@ -18,7 +18,7 @@
     "table": {
       "name": "Nombre",
       "price": "Precio",
-      "category": "categoría",
+      "category": "Categoría",
       "expirationDate": "Fecha de caducidad"
     }
   },
@@ -36,6 +36,16 @@
       "cancel": "Cancelar"
     },
     "imgAlt": "Foto de perfil"
+  },
+  "shoppingCart": {
+    "title": "Resumen de la compra",
+    "total": "Total:",
+    "confirm": "Realizar pedido",
+    "table": {
+      "name": "Nombre",
+      "price": "Precio",
+      "quantity": "Cantidad"
+    }
   },
   "form": {
     "email": {
