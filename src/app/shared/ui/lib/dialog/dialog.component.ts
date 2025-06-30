@@ -11,32 +11,35 @@ import {
   ViewContainerRef,
   ViewEncapsulation
 } from '@angular/core';
-import {Img} from '../../../domain/lib/interfaces/img.interface';
-import {UtilDialogService} from '../../../util/lib/services/dialog/dialog.service';
-import {IconEnum, KeyupSpecialKeys} from '@adrian_alonso/component-library/enums';
-import {DomainAction} from '../../../domain/lib/interfaces/actions';
+import {UtilDialogService} from '@tfm-angular/shared/util';
+import {ButtonType, IconEnum, KeyupSpecialKeys, Theme} from '@adrian_alonso/component-library/enums';
+import {DomainAction} from '@tfm-angular/shared/domain';
 import "@adrian_alonso/component-library/tfm-button"
+import "@adrian_alonso/component-library/tfm-icon-button"
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'tfm-dialog',
-  imports: [],
+  imports: [
+    TranslatePipe
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <dialog #dialog class="dialog" [attr.aria-label]="title || ariaLabel">
       <header #header class="dialog__header" [class.dialog__header--no-title]="!title">
         @if (title) {
-          <h3 class="ui-label-bold">{{ title }}</h3>
+          <h3 class="ui-label-bold">{{ title | translate }}</h3>
         }
-        <!--        @if (canClose) {-->
-        <!--          <ltm-icon [icon]="closeIcon.src"-->
-        <!--                   [alt]="closeAlt"-->
-        <!--                   [sizeRem]="1.5"-->
-        <!--                   color="var(&#45;&#45;light-color)"-->
-        <!--                   tabindex="0"-->
-        <!--                   class="header__close"-->
-        <!--                   (click)="closeDialog()"-->
-        <!--                   (keydown.enter)="$event.preventDefault(); closeDialog()"/>-->
-        <!--        }-->
+                @if (canClose) {
+                  <tfm-icon-button
+                    (click)="closeDialog()"
+                    [icon]="IconEnum.X_OUTLINE"
+                    [variant]="ButtonType.ACCESSORY"
+                    (keydown.enter)="$event.preventDefault(); closeDialog()"
+                    class="header__close"
+                    [theme]="Theme.DARK"
+                  ></tfm-icon-button>
+                }
       </header>
       @if (actions.length) {
         <footer class="dialog__footer">
@@ -62,7 +65,6 @@ export class UiDialogComponent {
   @Input() closeAlt: string = '';
   @Input() data: Record<string, any> = {};
 
-  public readonly closeIcon: Img<IconEnum> = { src: IconEnum.CLOSE_FILL, alt: this.closeAlt };
   public readonly dialogService: UtilDialogService = inject(UtilDialogService);
   private readonly dialog: Signal<ElementRef<HTMLDialogElement>> = viewChild.required('dialog');
   private readonly dialogHeaderRef: Signal<ViewContainerRef> = viewChild.required('header', {read: ViewContainerRef});
@@ -92,4 +94,8 @@ export class UiDialogComponent {
       this.dialogService.close(value);
     }
   }
+
+  protected readonly Theme = Theme;
+  protected readonly IconEnum = IconEnum;
+  protected readonly ButtonType = ButtonType;
 }

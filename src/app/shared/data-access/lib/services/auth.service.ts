@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { DomainRoutesEnum } from '@tfm-angular/shared/domain';
 import {LoginDomainForm} from '@tfm-angular/login/domain';
 import {RegisterDomainForm} from '@tfm-angular/register/domain';
-import {LoginResponseInterface} from '../../../domain/lib/interfaces/login-response.interface';
+import {LoginResponseInterface} from '@tfm-angular/shared/domain';
 import {AppStore} from '../store/app.store';
 
 @Injectable({
@@ -19,7 +19,6 @@ export class DataAccessAuthService extends DataAccessAbstractHttpService {
   private readonly router: Router = inject(Router);
 
   private readonly state = inject(AppStore);
-
 
   public login(loginCredentials: LoginDomainForm): Observable<LoginResponseInterface> {
     return this.post<LoginDomainForm, LoginResponseInterface>('/login', loginCredentials).pipe(
@@ -72,6 +71,7 @@ export class DataAccessAuthService extends DataAccessAbstractHttpService {
 
   public logout(): void{
     this.removeToken();
+    this.state.resetState();
     this.router.navigateByUrl(DomainRoutesEnum.LOGIN);
   }
 

@@ -14,12 +14,14 @@ import {TablePageChangeEvent} from '../../shared/domain/lib/interfaces/table.int
 import {ProductInterface} from '../products/domain/lib/product.interface';
 import {TranslatePipe} from '@ngx-translate/core';
 import {ButtonType} from '@adrian_alonso/component-library/enums';
+import {CurrencyPipe} from '@angular/common';
 
 @Component({
   selector: 'tfm-shopping-cart',
   imports: [
     TableComponent,
-    TranslatePipe
+    TranslatePipe,
+    CurrencyPipe
   ],
   templateUrl: './shopping-cart.component.html',
   standalone: true,
@@ -52,6 +54,10 @@ export class ShoppingCartComponent {
 
   public onProductIncrement(barcode:string): void{
     this.state.incrementProduct(barcode);
+  }
+
+  public confirmCart():void{
+    alert('Funcionalidad a implementar');
   }
 
   private getTotalPrice(products: Map<string, { product: ProductInterface; quantity: number }> | null): number {

@@ -13,14 +13,19 @@
   </div>
   <div class="side-wrapper">
     <div class="resume">
-      <div>
-        <span>{{'shoppingCart.total' | translate}}</span>
-        <span>{{total()}}</span>
+      <div style="display: flex; justify-content: space-between; align-items: center" >
+        <h3>{{'shoppingCart.total' | translate}}</h3>
+        <span class="tfm-paragraph-bold">{{ total() | currency:'EUR':'symbol':'1.2-2' }}</span>
       </div>
+      @if(products()){
+      <div style="display: flex; justify-content: center;" >
       <tfm-button
         [label]="'shoppingCart.confirm' | translate"
         [variant]="ButtonTypeEnum.SECONDARY"
+        (click)="confirmCart()"
       ></tfm-button>
+      </div>
+      }
     </div>
   </div>
 </div>

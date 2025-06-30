@@ -20,6 +20,10 @@
       "price": "Precio",
       "category": "Categoría",
       "expirationDate": "Fecha de caducidad"
+    },
+    "detail": {
+      "title": "Detalles de proudcto",
+      "action": "Añadir producto al carrito"
     }
   },
   "profile": {
@@ -46,6 +50,10 @@
       "price": "Precio",
       "quantity": "Cantidad"
     }
+  },
+  "footer":{
+    "title":"Todos los derechos reservados",
+    "subtitle":"Adrian.alonso.ledesma@alumnos.upm.es"
   },
   "form": {
     "email": {

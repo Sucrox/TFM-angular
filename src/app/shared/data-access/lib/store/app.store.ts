@@ -32,6 +32,7 @@ export const AppStore = signalStore(
     ...userMethods(store),
     resetState: () => patchState(store, () => ({
       user: null,
+      productsInCart:null,
     }))
   })),
 );
