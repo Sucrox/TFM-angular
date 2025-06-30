@@ -1,11 +1,11 @@
 import {Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, signal, WritableSignal} from '@angular/core';
-import {UtilDialogService} from '../../../../../shared/util/lib/services/dialog/dialog.service';
+import {UtilDialogService} from '@tfm-angular/shared/util';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {PasswordForm, PasswordFormGroupModel} from '../../../domain/lib/password-form';
+import {PasswordForm, PasswordFormGroupModel} from '@tfm-angular/profile/domain';
 import {FormValidationUtils} from '@tfm-angular/shared/util';
 import {ControlValueAccessorDirective} from '@adrian_alonso/angular-utils-library';
 import {TranslatePipe} from '@ngx-translate/core';
-import {PASSWORD_FORM_MODEL} from '../../../util/lib/password-form';
+import {PASSWORD_FORM_MODEL} from '@tfm-angular/profile/util';
 import {RibbonStateEnum} from '@adrian_alonso/component-library/enums';
 import "@adrian_alonso/component-library/tfm-input"
 import "@adrian_alonso/component-library/tfm-ribbon"
