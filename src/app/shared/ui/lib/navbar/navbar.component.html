@@ -8,21 +8,19 @@
       @if(routes().length>0){
         <div class="row">
           @for(route of routes(); track route.route){
-            <a class="link__router ui-label-small"
-               role="menuitem"
-               [class.links__route--active]="isActiveRoute(route.route)"
-               (click)="goTo(route.route)"
-               [attr.aria-label]="route.text"
-               tabindex="0"
-            >
-              {{route.text}}
-            </a>
+            <tfm-link
+            [label]="route.text"
+            [theme]="Theme.DARK"
+            [class.links__route--active]="isActiveRoute(route.route)"
+            [leftIcon]="route.icon"
+            [type]="ButtonType.SECONDARY"
+            (click)="goTo(route.route)">
+            </tfm-link>
           }
         </div>
       }
 
       <div class="row">
-
         <tfm-prefix-selector tfmControlValueAccessor
                              header
                              [ariaLabel]="'header.languageSelecto' | translate"
@@ -32,7 +30,6 @@
                              [options]="supportedLangs"
 
         >
-
         </tfm-prefix-selector>
 
         @if (user()) {

@@ -36,6 +36,7 @@
                        [id]="profileFormModel.phone.name"
                        [type]="profileFormModel.phone.type"
                        [label]="profileFormModel.phone.label | translate"
+                       [prefixValue]="prefix()"
                        [formControlName]="profileFormModel.phone.name"
                        [placeholder]="profileFormModel.phone.placeholder! | translate"
                        [ariaLabel]="profileFormModel.phone.placeholder"
@@ -73,8 +74,8 @@
 <div class="actions">
   <tfm-button
     [label]="'profile.actions.confirm' | translate "
-    [isDisabled]="!form().valid"
-    (click)="form().valid ? updateProfile() : null"
+    [isDisabled]="checkValue()"
+    (click)="!checkValue() ? updateProfile() : null"
   ></tfm-button>
 
   <tfm-button

@@ -11,6 +11,7 @@ import {ControlValueAccessorDirective} from '@adrian_alonso/angular-utils-librar
 import {LangChangeEvent, TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {
+  ButtonType,
   CountryFlagEnum,
   CountryInitialsEnum,
   CountryPrefixEnum,
@@ -18,12 +19,11 @@ import {
   Theme, UserTypeEnum
 } from '@adrian_alonso/component-library/enums';
 import {Country} from '@adrian_alonso/component-library/interfaces';
-import {LangsEnum} from '../../../domain/lib/enums/langs-enum';
+import {LangsEnum} from '@tfm-angular/shared/domain';
 import "@adrian_alonso/component-library/tfm-prefix-selector"
 import "@adrian_alonso/component-library/tfm-user-widget"
 import {DomainRoutesEnum, HeaderLink} from '@tfm-angular/shared/domain';
 import {Router} from '@angular/router';
-import {UserInterface} from '../../../domain/lib/interfaces/user.interface';
 import {UserState} from '@tfm-angular/shared/data-access';
 
 
@@ -120,4 +120,5 @@ export class NavbarComponent implements OnInit{
   protected readonly Theme = Theme;
   protected readonly UserTypeEnum = UserTypeEnum;
   protected readonly DomainRoutesEnum = DomainRoutesEnum;
+  protected readonly ButtonType = ButtonType;
 }

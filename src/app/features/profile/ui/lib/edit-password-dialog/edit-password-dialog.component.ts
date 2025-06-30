@@ -44,6 +44,7 @@ export class ProfileUiEditPasswordDialogComponent {
   }
 
   public submit(): void {
+    alert('Contraseña modificada valor:' + this.form().value.newPassword);
     this.dialogService.close(this.form().value);
   }
 

@@ -1,16 +1,20 @@
 import {
   Component,
+  computed,
   CUSTOM_ELEMENTS_SCHEMA,
   effect,
   inject,
   input,
-  InputSignal, output, OutputEmitterRef,
+  InputSignal,
+  output,
+  OutputEmitterRef,
+  Signal,
   signal,
   WritableSignal
 } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {UserInfo} from '../../../../../shared/domain/lib/interfaces/user.interface';
-import {ProfileDomainForm, ProfileForm, ProfileFormGroupModel} from '../../../domain/lib/profile-form';
+import {UserInfo} from '@tfm-angular/shared/domain';
+import {ProfileForm, ProfileFormGroupModel, UpdateProfile} from '@tfm-angular/profile/domain';
 import {ControlValueAccessorDirective} from '@adrian_alonso/angular-utils-library';
 import {TranslatePipe} from '@ngx-translate/core';
 import {PROFILE_FORM_MODEL} from '../../../util/lib/form';
@@ -19,8 +23,7 @@ import "@adrian_alonso/component-library/tfm-button"
 import "@adrian_alonso/component-library/tfm-input"
 import "@adrian_alonso/component-library/tfm-input-email"
 import "@adrian_alonso/component-library/tfm-input-phone"
-import {ButtonType} from '@adrian_alonso/component-library/enums';
-import {UpdateProfile} from '../../../domain/lib/profile.interface';
+import {ButtonType, CountryPrefixEnum} from '@adrian_alonso/component-library/enums';
 
 @Component({
   selector: 'profile-user-info',
@@ -39,10 +42,26 @@ export class ProfileUiUserInfoComponent {
   public readonly form: WritableSignal<FormGroup<ProfileForm>> = signal(this.generateForm());
   public userInfo: InputSignal<UserInfo> = input.required<UserInfo>();
 
+  public prefix: Signal<CountryPrefixEnum> = computed(() => {
+    const rawPrefix = this.userInfo().phone.split(' ')[0].replace('+', '');
+    const entries = Object.entries(CountryPrefixEnum) as [keyof typeof CountryPrefixEnum, string][];
+    const match = entries.find(([_, value]) => value === rawPrefix);
+    return match ? CountryPrefixEnum[match[0]] : CountryPrefixEnum.ES;
+  });
   public readonly profileFormModel: ProfileFormGroupModel = PROFILE_FORM_MODEL;
   public readonly ButtonTypeEnum : typeof ButtonType = ButtonType;
 
+  public checkValue(): boolean {
+    const fieldsToCheck: (keyof UserInfo)[] = ['firstName', 'familyName'];
 
+    const isUnchanged = fieldsToCheck.every((key) => {
+      return this.form().value[key] === this.userInfo()[key];
+    });
+    const isInvalid = !this.form().valid;
+    const isPristine = this.form().pristine;
+
+    return isInvalid || isPristine || isUnchanged;
+  }
 
   private generateForm(): FormGroup<ProfileForm> {
     return new FormGroup<ProfileForm>({
@@ -61,13 +80,10 @@ export class ProfileUiUserInfoComponent {
   constructor(
   ) {
     effect(() => {
-      console.log({userdata: this.userInfo()})
+      console.log({userdatsa: this.prefix()})
       this.form().patchValue({
-        email: this.userInfo().email,
-        firstName: this.userInfo().firstName,
-        familyName: this.userInfo().familyName,
-        phone: this.userInfo().phone,
-        dni: this.userInfo().dni,
+        ...this.userInfo(),
+        phone: this.userInfo().phone.split(' ')[1]
       })
     });
   }
@@ -79,5 +95,4 @@ export class ProfileUiUserInfoComponent {
   public logout(): void{
     this.authService.logout();
   }
-
 }
