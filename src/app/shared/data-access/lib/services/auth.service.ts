@@ -1,11 +1,11 @@
 import { inject, Injectable} from '@angular/core';
 import { DataAccessAbstractHttpService } from '@tfm-angular/shared/data-access';
-import {catchError, Observable, of, switchMap, tap, throwError} from 'rxjs';
+import {catchError, Observable, switchMap, tap, throwError} from 'rxjs';
 import { Router } from '@angular/router';
 import { DomainRoutesEnum } from '@tfm-angular/shared/domain';
 import {LoginDomainForm} from '@tfm-angular/login/domain';
 import {RegisterDomainForm} from '@tfm-angular/register/domain';
-import {LoginResponseInterface} from '../../../domain/lib/interfaces/login-response.interface';
+import {LoginResponseInterface} from '@tfm-angular/shared/domain';
 import {AppStore} from '../store/app.store';
 
 @Injectable({
@@ -20,17 +20,15 @@ export class DataAccessAuthService extends DataAccessAbstractHttpService {
 
   private readonly state = inject(AppStore);
 
-
-  public login(loginCredentials: LoginDomainForm): Observable<LoginResponseInterface> { return this.post<LoginDomainForm, LoginResponseInterface>('/login', loginCredentials).pipe(
+  public login(loginCredentials: LoginDomainForm): Observable<LoginResponseInterface> {
+    return this.post<LoginDomainForm, LoginResponseInterface>('/login', loginCredentials).pipe(
     tap((response: LoginResponseInterface) => {
       this.setAuthorization(response.token);
 
       this.state.updateUser({
         phone: response.phone,
       });
-
       this.router.navigateByUrl(DomainRoutesEnum.PRODUCTS);
-      console.log('Autenticación completada');
     }),
     catchError((error) => {
       alert('Credenciales erróneas');
@@ -53,21 +51,10 @@ export class DataAccessAuthService extends DataAccessAbstractHttpService {
         return this.login(loginCredentials);
       })
     ).subscribe({
-      next: () => {
-        console.log('Registro y autenticación completados');
-      },
       error: () => {
-        alert('Error en el registro o autenticación');
+        alert('Error en el registro');
       }
     });
-  }
-
-  public checkUserName(username:string):Observable<any> {
-    return this.get(`/${username}`).pipe(
-      catchError((error: any) => {
-        return of(error)
-      })
-    );
   }
 
   private setAuthorization(token: string){
@@ -84,6 +71,7 @@ export class DataAccessAuthService extends DataAccessAbstractHttpService {
 
   public logout(): void{
     this.removeToken();
+    this.state.resetState();
     this.router.navigateByUrl(DomainRoutesEnum.LOGIN);
   }
 

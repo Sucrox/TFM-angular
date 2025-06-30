@@ -1,5 +1,5 @@
 import {Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, input, InputSignal, Signal} from '@angular/core';
-import {Img} from '../../../../shared/domain/lib/interfaces/img.interface';
+import {Img} from '@tfm-angular/shared/domain';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
@@ -16,7 +16,7 @@ import {TranslateService} from '@ngx-translate/core';
   styles: [`
     .product-pic {
       margin: auto;
-      border-radius: 12.1875rem;
+      border-radius: 9rem;
       width: 90%;
       height: 90%;
     }
@@ -25,7 +25,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class ProductPictureComponent {
   private readonly translate = inject(TranslateService);
 
-  public static readonly productPicPlaceholder: string = 'assets/profile/propic-placeholder.jpg';
+  public static readonly productPicPlaceholder: string = 'assets/products/food-placeholder.jpg';
 
   public productPic: InputSignal<string> = input.required<string>();
 

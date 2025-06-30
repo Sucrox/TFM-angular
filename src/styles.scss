@@ -4,6 +4,12 @@ body{
   margin: 0;
   overflow-x: hidden;
 }
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 76.5vh;
+}
+
 .header{
   width: 100vw;
   height: 80px;
@@ -13,7 +19,6 @@ body{
   position: fixed;
   z-index: 999;
   top: 0;
-  padding: 0 1.625rem;
   border-bottom-left-radius: 1rem ;
   border-bottom-right-radius: 1rem ;
   background-color: #001A71FF;
@@ -21,8 +26,11 @@ body{
   margin: 0 auto;
 }
 .links{
+  margin: 0 5rem;
   display: flex;
   gap: 16px;
+  width: 100%;
+  justify-content: space-between;
 }
 a{
   text-decoration: none !important;
@@ -73,10 +81,11 @@ img{
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: relative;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  margin-top: 5rem;
 }
 .flag-container {
   display: flex;

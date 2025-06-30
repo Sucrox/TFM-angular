@@ -18,8 +18,12 @@
     "table": {
       "name": "Nombre",
       "price": "Precio",
-      "category": "categoría",
+      "category": "Categoría",
       "expirationDate": "Fecha de caducidad"
+    },
+    "detail": {
+      "title": "Detalles de proudcto",
+      "action": "Añadir producto al carrito"
     }
   },
   "profile": {
@@ -36,6 +40,20 @@
       "cancel": "Cancelar"
     },
     "imgAlt": "Foto de perfil"
+  },
+  "shoppingCart": {
+    "title": "Resumen de la compra",
+    "total": "Total:",
+    "confirm": "Realizar pedido",
+    "table": {
+      "name": "Nombre",
+      "price": "Precio",
+      "quantity": "Cantidad"
+    }
+  },
+  "footer":{
+    "title":"Todos los derechos reservados",
+    "subtitle":"Adrian.alonso.ledesma@alumnos.upm.es"
   },
   "form": {
     "email": {

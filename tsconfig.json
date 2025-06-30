@@ -35,11 +35,25 @@
       "@tfm-angular/shared/domain": ["src/app/shared/domain/index"],
       "@tfm-angular/shared/ui": ["src/app/shared/ui/index"],
 
-      "@tfm-angular/login/domain": ["src/app/features/login/domain"],
-      "@tfm-angular/login/ui": ["src/app/features/login/ui"],
+      "@tfm-angular/login/domain": ["src/app/features/login/domain/index"],
+      "@tfm-angular/login/ui": ["src/app/features/login/ui/index"],
+      "@tfm-angular/login/util": ["src/app/features/login/util/index"],
 
-      "@tfm-angular/register/domain": ["src/app/features/register/domain"],
-      "@tfm-angular/register/ui": ["src/app/features/register/ui"]
+      "@tfm-angular/register/domain": ["src/app/features/register/domain/index"],
+      "@tfm-angular/register/ui": ["src/app/features/register/ui/index"],
+      "@tfm-angular/register/util": ["src/app/features/register/util/index"],
+
+      "@tfm-angular/profile/domain": ["src/app/features/profile/domain/index"],
+      "@tfm-angular/profile/ui": ["src/app/features/profile/ui/index"],
+      "@tfm-angular/profile/util": ["src/app/features/profile/util/index"],
+      "@tfm-angular/profile/data-access": ["src/app/features/profile/data-access/index"],
+
+      "@tfm-angular/products/domain": ["src/app/features/products/domain/index"],
+      "@tfm-angular/products/ui": ["src/app/features/products/ui/index"],
+      "@tfm-angular/products/util": ["src/app/features/products/util/index"],
+      "@tfm-angular/products/data-access": ["src/app/features/products/data-access/index"],
+
+      "@tfm-angular/shopping-cart/util": ["src/app/features/shopping-cart/util/index"]
     }
   },
   "angularCompilerOptions": {

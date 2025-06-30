@@ -1,18 +1,31 @@
-import {Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit} from '@angular/core';
+import {
+  Component, computed,
+  CUSTOM_ELEMENTS_SCHEMA,
+  inject,
+  input,
+  InputSignal,
+  OnInit, output,
+  OutputEmitterRef, Signal
+} from '@angular/core';
 import {ControlValueAccessorDirective} from '@adrian_alonso/angular-utils-library';
 import {LangChangeEvent, TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {
+  ButtonType,
   CountryFlagEnum,
   CountryInitialsEnum,
   CountryPrefixEnum,
   PrefixTypeEnum,
-  Theme
+  Theme, UserTypeEnum
 } from '@adrian_alonso/component-library/enums';
 import {Country} from '@adrian_alonso/component-library/interfaces';
-import {LangsEnum} from '../../../domain/lib/enums/langs-enum';
+import {LangsEnum} from '@tfm-angular/shared/domain';
 import "@adrian_alonso/component-library/tfm-prefix-selector"
-import {DataAccessAuthService} from '@tfm-angular/shared/data-access';
+import "@adrian_alonso/component-library/tfm-user-widget"
+import {DomainRoutesEnum, HeaderLink} from '@tfm-angular/shared/domain';
+import {Router} from '@angular/router';
+import {UserState} from '@tfm-angular/shared/data-access';
+
 
 @Component({
   selector: 'tfm-navbar',
@@ -28,8 +41,24 @@ import {DataAccessAuthService} from '@tfm-angular/shared/data-access';
 })
 export class NavbarComponent implements OnInit{
 
-  private readonly authService: DataAccessAuthService = inject(DataAccessAuthService)
+  public readonly isLogin: InputSignal<boolean> = input<boolean>(true);
+  public readonly user: InputSignal<UserState | null> = input.required();
+  public routes: InputSignal<HeaderLink[]> = input.required();
+
+  public fullName: Signal<string> = computed(() =>
+    `${this.user()?.firstName} ${this.user()?.familyName}`
+  );
+
+  public initials: Signal<string> = computed(() => {
+    const firstInitial = this.user()?.firstName?.charAt(0).toUpperCase() || '';
+    const lastInitial = this.user()?.familyName?.charAt(0).toUpperCase() || '';
+    return firstInitial + lastInitial;
+  });
+
+  public readonly logout: OutputEmitterRef<void> = output<void>();
+
   private translateService: TranslateService = inject(TranslateService)
+  public readonly router: Router = inject(Router)
 
   public readonly userWidgetTheme : Theme = Theme.DARK;
   public readonly langWidgetType : PrefixTypeEnum = PrefixTypeEnum.INITIALS;
@@ -38,13 +67,19 @@ export class NavbarComponent implements OnInit{
     {flag: CountryFlagEnum.GB, initials: CountryInitialsEnum.GB, prefix:CountryPrefixEnum.GB}
   ]
 
-  public readonly isAuthenticated = computed(() => this.authService.isAuthenticated());
-
 
   public readonly languageWidget: FormControl<CountryInitialsEnum> = new FormControl(CountryInitialsEnum.ES, {nonNullable: true})
 
   public ngOnInit() {
     this.getLangInfo()
+  }
+
+  public goTo(route:DomainRoutesEnum): void{
+    this.router.navigate([route], {state: {from: this.router.url}});
+  }
+
+  public isActiveRoute(route: DomainRoutesEnum): boolean{
+    return this.router.url.replace('/','').includes(route);
   }
 
   private getLangInfo(): void {
@@ -82,8 +117,8 @@ export class NavbarComponent implements OnInit{
     }
   }
 
-  public logout(): void {
-    this.authService.logout();
-  }
-
+  protected readonly Theme = Theme;
+  protected readonly UserTypeEnum = UserTypeEnum;
+  protected readonly DomainRoutesEnum = DomainRoutesEnum;
+  protected readonly ButtonType = ButtonType;
 }

@@ -1,13 +1,13 @@
 import {Component, CUSTOM_ELEMENTS_SCHEMA, inject, input, Signal, signal, WritableSignal} from '@angular/core';
-import {ProductInterface} from '../../domain/lib/product.interface';
-import {UtilDialogService} from '../../../../shared/util/lib/services/dialog/dialog.service';
-import {ProductPictureComponent} from '../../ui/product-picture/product-picture.component';
+import {ProductInterface} from '@tfm-angular/products/domain';
+import {UtilDialogService} from '@tfm-angular/shared/util';
+import {ProductPictureComponent} from '@tfm-angular/products/ui';
 import {CurrencyPipe, DatePipe} from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
 import "@adrian_alonso/component-library/tfm-input"
 import "@adrian_alonso/component-library/tfm-button"
 import {ControlValueAccessorDirective} from '@adrian_alonso/angular-utils-library';
-import {InputTypeEnum} from '../../../../shared/domain/lib/enums/input-type.enum';
+import {InputTypeEnum} from '@tfm-angular/shared/domain';
 import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({

@@ -20,6 +20,10 @@
       "price": "Price",
       "category": "Category",
       "expirationDate": "Expiration date"
+    },
+    "detail": {
+      "title": "Product details",
+      "action": "Add product to cart"
     }
   },
   "profile": {
@@ -36,6 +40,20 @@
       "cancel": "Cancel"
     },
     "imgAlt": "Profile picture"
+  },
+  "shoppingCart": {
+    "title": "Purchase Summary",
+    "total": "Total:",
+    "confirm": "Place Order:",
+    "table": {
+      "name": "Name",
+      "price": "Price",
+      "quantity": "Quantity"
+    }
+  },
+  "footer":{
+    "title":"All rights reserved",
+    "subtitle":"Adrian.alonso.ledesma@alumnos.upm.es"
   },
   "form": {
     "email": {

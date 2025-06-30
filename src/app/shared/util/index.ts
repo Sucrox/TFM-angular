@@ -1,1 +1,6 @@
 export * from './lib/form.utils'
+export * from './lib/guards/auth.guard'
+export * from './lib/guards/logged-auth.guard'
+export * from './lib/services/device/util-device.service'
+export * from './lib/services/dialog/dialog.service'
+export * from './lib/services/user/user.service'

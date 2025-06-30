@@ -1,0 +1,40 @@
+.main-wrapper{
+  background-color: transparent;
+  padding: 0;
+  justify-content: space-between;
+  border-radius: unset;
+  border: unset;
+  box-shadow: unset;
+  display: flex;
+  .title{
+    font-size: 28px;
+    line-height: 2.5rem;
+  }
+}
+
+.table-wrapper{
+  display: flex;
+  flex-direction: column;
+  padding: 36px;
+  background-color: #FFFFFF;
+  border-radius: 1rem ;  width: 60%;
+  border: 1px solid #dbe0e3;
+  box-shadow:  1px 1px 2px 0 rgb(155 195 211 / 30%);
+  shopping-table{
+    width: 100%;
+  }
+}
+
+.side-wrapper{
+  height: 100%;
+  width: 20%;
+  padding: 36px;
+  background-color: #FFFFFF;
+  border-radius: 1rem ;
+  border: 1px solid #dbe0e3;
+  box-shadow:  1px 1px 2px 0 rgb(155 195 211 / 30%);
+  .resume{
+    display: flex;
+    flex-direction: column;
+  }
+}

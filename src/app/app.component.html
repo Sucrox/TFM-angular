@@ -1,4 +1,12 @@
-<tfm-navbar></tfm-navbar>
+<div class="page-container">
+@defer (when currentRoute()){
+    <tfm-navbar
+      [routes]="routes()"
+      [hasLogout]="isLogin()"
+      [user]="user()"
+      (logout)="logout()"
+    ></tfm-navbar>
+}
 <main>
   @defer {
     <router-outlet></router-outlet>
@@ -7,4 +15,5 @@
 <tfm-dialog #dialogElement>
   <ng-container #dialogContainer></ng-container>
 </tfm-dialog>
-<!--<tfm-footer></tfm-footer>-->
+<tfm-footer></tfm-footer>
+</div>

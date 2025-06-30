@@ -1,5 +1,5 @@
 import {LoginFormGroupModel} from '@tfm-angular/login/domain';
-import {InputTypeEnum} from '../../../../shared/domain/lib/enums/input-type.enum';
+import {InputTypeEnum} from '@tfm-angular/shared/domain';
 
 export const LOGIN_FORM_MODEL: LoginFormGroupModel= {
   email: {
@@ -10,7 +10,7 @@ export const LOGIN_FORM_MODEL: LoginFormGroupModel= {
     required: true
   },
   password: {
-    type: InputTypeEnum.TEXT,
+    type: InputTypeEnum.PASSWORD,
     name: 'password',
     label: 'form.password.label',
     placeholder: 'form.password.label',
