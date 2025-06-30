@@ -17,7 +17,6 @@ export const environment = {
       text: 'Shopping Cart',
       route: DomainRoutesEnum.SHOPPING_CART,
       icon: IconEnum.CREDIT_CARD_FILL
-
       }
   ],
 }

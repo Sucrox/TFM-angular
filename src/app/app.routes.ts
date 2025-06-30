@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
 import { DomainRoutesEnum } from '@tfm-angular/shared/domain';
-import { authGuard } from './shared/util/lib/guards/auth.guard';
-import {loggedAuthGuard} from './shared/util/lib/guards/logged-auth.guard';
-import {ShoppingCartComponent} from './features/shopping-cart/shopping-cart.component';
+import { authGuard } from '@tfm-angular/shared/util';
+import {loggedAuthGuard} from '@tfm-angular/shared/util';
 
 export const routes: Routes = [
   {
@@ -14,8 +13,8 @@ export const routes: Routes = [
   },
   {
     path: DomainRoutesEnum.PRODUCTS,
-    loadChildren: () => import('./features/products/products.routes').then(
-      (m)=> m.productsRoutes),
+    loadComponent: () => import('./features/products/products.component').then(
+      (m)=> m.ProductsComponent),
     title: 'Products',
     canActivate: [authGuard]
   },
